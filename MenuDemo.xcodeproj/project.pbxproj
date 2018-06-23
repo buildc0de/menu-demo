@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94220DE83EC00D2E328 /* AppDelegate.swift */; };
-		9576B94520DE83EC00D2E328 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94420DE83EC00D2E328 /* ViewController.swift */; };
+		9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */; };
 		9576B94820DE83EC00D2E328 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94620DE83EC00D2E328 /* Main.storyboard */; };
 		9576B94A20DE83F200D2E328 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94920DE83F200D2E328 /* Assets.xcassets */; };
 		9576B94D20DE83F200D2E328 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94B20DE83F200D2E328 /* LaunchScreen.storyboard */; };
+		9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9576B93F20DE83EC00D2E328 /* MenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576B94220DE83EC00D2E328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9576B94420DE83EC00D2E328 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupListVC.swift; sourceTree = "<group>"; };
 		9576B94720DE83EC00D2E328 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9576B94920DE83F200D2E328 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9576B94C20DE83F200D2E328 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9576B94E20DE83F200D2E328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupListInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,47 @@
 		9576B94120DE83EC00D2E328 /* MenuDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9576B95920DEA0EE00D2E328 /* Resources */,
+				9576B95720DEA0B000D2E328 /* Sources */,
+				9576B95620DEA09C00D2E328 /* Supporting Files */,
+			);
+			path = MenuDemo;
+			sourceTree = "<group>";
+		};
+		9576B95620DEA09C00D2E328 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				9576B94E20DE83F200D2E328 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9576B95720DEA0B000D2E328 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
 				9576B94220DE83EC00D2E328 /* AppDelegate.swift */,
-				9576B94420DE83EC00D2E328 /* ViewController.swift */,
+				9576B95820DEA0C100D2E328 /* Menu Group List */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9576B95820DEA0C100D2E328 /* Menu Group List */ = {
+			isa = PBXGroup;
+			children = (
+				9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */,
+				9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */,
+			);
+			path = "Menu Group List";
+			sourceTree = "<group>";
+		};
+		9576B95920DEA0EE00D2E328 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				9576B94920DE83F200D2E328 /* Assets.xcassets */,
 				9576B94B20DE83F200D2E328 /* LaunchScreen.storyboard */,
 				9576B94620DE83EC00D2E328 /* Main.storyboard */,
 			);
-			path = MenuDemo;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9576B94520DE83EC00D2E328 /* ViewController.swift in Sources */,
+				9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */,
+				9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */,
 				9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,7 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 722FN4GS36;
-				INFOPLIST_FILE = MenuDemo/Info.plist;
+				INFOPLIST_FILE = "MenuDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,7 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 722FN4GS36;
-				INFOPLIST_FILE = MenuDemo/Info.plist;
+				INFOPLIST_FILE = "MenuDemo/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
