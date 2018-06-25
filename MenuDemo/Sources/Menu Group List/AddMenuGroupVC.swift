@@ -1,7 +1,7 @@
 import UIKit
 
 /// A view controller responsible for adding a new menu group
-final class NewMenuGroupVC: UIViewController {
+final class AddMenuGroupVC: UIViewController {
 
     // MARK: - @IBActions
     @IBOutlet weak var nameTextField: UITextField!
@@ -17,7 +17,7 @@ final class NewMenuGroupVC: UIViewController {
     
 }
 
-fileprivate extension NewMenuGroupVC {
+fileprivate extension AddMenuGroupVC {
     
     func save() {
         
