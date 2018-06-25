@@ -3,11 +3,15 @@ import UIKit
 /// A view controller responsible for displaying a list of menu groups
 final class MenuGroupListVC: UITableViewController, EmptyStatePresenting {
 
+    enum SegueIdentifier: String {
+        case addMenuGroup
+    }
+
     // MARK: - @IBOutlets
     @IBOutlet weak var emptyView: UIView!
     
     // MARK: - Private
-    fileprivate var interactor: Interactor!
+    fileprivate var interactor: MenuGroupListInteractor!
     fileprivate var data: [TableViewPresentable] = [] { didSet { updateEmptyView() }}
     
     // MARK: - EmptyStatePresenting
@@ -76,6 +80,10 @@ fileprivate extension MenuGroupListVC {
         interactor.loadData()
     }
     
+    func addMenuGroup(name: String, image: UIImage) {
+        
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -121,4 +129,32 @@ extension MenuGroupListVC: InteractorDelegate {
         
     }
     
+    func didInsertItem(_ item: TableViewPresentable) {
+        
+        data += [item]
+        tableView.reloadData()
+        
+    }
+    
+}
+
+// MARK: - Segues
+
+extension MenuGroupListVC: SegueHandler {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let identifierCase = segueIdentifierCase(for: segue)
+        
+        switch identifierCase {
+            
+        case .addMenuGroup:
+            let vc = segue.destination as! NewMenuGroupVC
+            vc.completion = { name, image in
+                self.interactor.addMenuGroup(name: name, image: image)
+            }
+            
+        }
+        
+    }
 }

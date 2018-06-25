@@ -9,9 +9,13 @@
 /* Begin PBXBuildFile section */
 		95312ED720DEA78E00132B4C /* Updatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312ED620DEA78E00132B4C /* Updatable.swift */; };
 		95312ED920DEA7B700132B4C /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312ED820DEA7B700132B4C /* UIView+Additions.swift */; };
-		95312EDB20DEA94400132B4C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EDA20DEA94400132B4C /* ViewModel.swift */; };
+		95312EDB20DEA94400132B4C /* TableViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EDA20DEA94400132B4C /* TableViewPresentable.swift */; };
 		95312EDD20DEC6CD00132B4C /* EmptyStatePresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */; };
-		95312EDF20DEC7E400132B4C /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EDE20DEC7E400132B4C /* Interactor.swift */; };
+		95312EE120DF12DB00132B4C /* NewMenuGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EE020DF12DB00132B4C /* NewMenuGroupVC.swift */; };
+		95312EE320DF141200132B4C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EE220DF141200132B4C /* SegueHandler.swift */; };
+		95312EE520E1593D00132B4C /* MenuGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EE420E1593D00132B4C /* MenuGroupCell.swift */; };
+		95312EE720E159B700132B4C /* MenuGroupViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EE620E159B700132B4C /* MenuGroupViewData.swift */; };
+		95312EE920E186D000132B4C /* MenuGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95312EE820E186D000132B4C /* MenuGroupCell.xib */; };
 		9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94220DE83EC00D2E328 /* AppDelegate.swift */; };
 		9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */; };
 		9576B94820DE83EC00D2E328 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94620DE83EC00D2E328 /* Main.storyboard */; };
@@ -24,9 +28,13 @@
 /* Begin PBXFileReference section */
 		95312ED620DEA78E00132B4C /* Updatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updatable.swift; sourceTree = "<group>"; };
 		95312ED820DEA7B700132B4C /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
-		95312EDA20DEA94400132B4C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		95312EDA20DEA94400132B4C /* TableViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewPresentable.swift; sourceTree = "<group>"; };
 		95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStatePresenting.swift; sourceTree = "<group>"; };
-		95312EDE20DEC7E400132B4C /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		95312EE020DF12DB00132B4C /* NewMenuGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMenuGroupVC.swift; sourceTree = "<group>"; };
+		95312EE220DF141200132B4C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
+		95312EE420E1593D00132B4C /* MenuGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupCell.swift; sourceTree = "<group>"; };
+		95312EE620E159B700132B4C /* MenuGroupViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupViewData.swift; sourceTree = "<group>"; };
+		95312EE820E186D000132B4C /* MenuGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuGroupCell.xib; sourceTree = "<group>"; };
 		9576B93F20DE83EC00D2E328 /* MenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576B94220DE83EC00D2E328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupListVC.swift; sourceTree = "<group>"; };
@@ -53,10 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */,
-				95312EDE20DEC7E400132B4C /* Interactor.swift */,
+				95312EE220DF141200132B4C /* SegueHandler.swift */,
+				95312EDA20DEA94400132B4C /* TableViewPresentable.swift */,
 				95312ED820DEA7B700132B4C /* UIView+Additions.swift */,
 				95312ED620DEA78E00132B4C /* Updatable.swift */,
-				95312EDA20DEA94400132B4C /* ViewModel.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -108,9 +116,13 @@
 		9576B95820DEA0C100D2E328 /* Menu Group List */ = {
 			isa = PBXGroup;
 			children = (
+				95312EE420E1593D00132B4C /* MenuGroupCell.swift */,
+				95312EE820E186D000132B4C /* MenuGroupCell.xib */,
 				9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */,
 				9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */,
+				95312EE620E159B700132B4C /* MenuGroupViewData.swift */,
 				9576B95A20DEA4D100D2E328 /* MenuGroupViewModel.swift */,
+				95312EE020DF12DB00132B4C /* NewMenuGroupVC.swift */,
 			);
 			path = "Menu Group List";
 			sourceTree = "<group>";
@@ -183,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95312EE920E186D000132B4C /* MenuGroupCell.xib in Resources */,
 				9576B94D20DE83F200D2E328 /* LaunchScreen.storyboard in Resources */,
 				9576B94A20DE83F200D2E328 /* Assets.xcassets in Resources */,
 				9576B94820DE83EC00D2E328 /* Main.storyboard in Resources */,
@@ -198,13 +211,16 @@
 			files = (
 				95312ED920DEA7B700132B4C /* UIView+Additions.swift in Sources */,
 				9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */,
-				95312EDF20DEC7E400132B4C /* Interactor.swift in Sources */,
+				95312EE720E159B700132B4C /* MenuGroupViewData.swift in Sources */,
 				9576B95B20DEA4D100D2E328 /* MenuGroupViewModel.swift in Sources */,
 				95312ED720DEA78E00132B4C /* Updatable.swift in Sources */,
 				95312EDD20DEC6CD00132B4C /* EmptyStatePresenting.swift in Sources */,
+				95312EE120DF12DB00132B4C /* NewMenuGroupVC.swift in Sources */,
+				95312EE520E1593D00132B4C /* MenuGroupCell.swift in Sources */,
+				95312EE320DF141200132B4C /* SegueHandler.swift in Sources */,
 				9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */,
 				9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */,
-				95312EDB20DEA94400132B4C /* ViewModel.swift in Sources */,
+				95312EDB20DEA94400132B4C /* TableViewPresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

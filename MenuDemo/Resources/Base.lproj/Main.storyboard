@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J4J-df-Ege">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="s6W-TR-9qV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Menu Group ListVC-->
+        <!--Menu Groups-->
         <scene sceneID="moT-aV-Fmp">
             <objects>
                 <tableViewController id="J4J-df-Ege" customClass="MenuGroupListVC" customModule="MenuDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,6 +24,13 @@
                             <outlet property="delegate" destination="J4J-df-Ege" id="Tnc-Lc-Lhk"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Menu Groups" id="ieP-cM-yyc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vdi-Nk-bgm">
+                            <connections>
+                                <segue destination="bvi-ed-e7b" kind="show" identifier="addMenuGroup" id="av9-dK-LLO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emptyView" destination="nZI-Ei-fhf" id="nvo-eG-0NG"/>
                     </connections>
@@ -32,22 +40,92 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8A-Ef-IVe">
-                            <rect key="frame" x="77.5" y="53" width="85" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap '+' to add new items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8A-Ef-IVe">
+                            <rect key="frame" x="27" y="53" width="186" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="xmF-yh-G2o" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A8A-Ef-IVe" secondAttribute="trailing" id="2uW-q5-muT"/>
+                        <constraint firstItem="xmF-yh-G2o" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A8A-Ef-IVe" secondAttribute="bottom" id="Ftf-88-Gjt"/>
                         <constraint firstItem="A8A-Ef-IVe" firstAttribute="centerY" secondItem="xmF-yh-G2o" secondAttribute="centerY" id="HeV-e7-p4g"/>
+                        <constraint firstItem="A8A-Ef-IVe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xmF-yh-G2o" secondAttribute="leading" id="NWf-Eg-uiF"/>
                         <constraint firstItem="A8A-Ef-IVe" firstAttribute="centerX" secondItem="xmF-yh-G2o" secondAttribute="centerX" id="n7p-el-34e"/>
+                        <constraint firstItem="A8A-Ef-IVe" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xmF-yh-G2o" secondAttribute="top" id="qss-Ef-D4o"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="xmF-yh-G2o"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="146" y="145"/>
+            <point key="canvasLocation" x="1084" y="144.3778110944528"/>
+        </scene>
+        <!--New Menu Group-->
+        <scene sceneID="ibg-4k-syZ">
+            <objects>
+                <viewController id="bvi-ed-e7b" customClass="NewMenuGroupVC" customModule="MenuDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Gd-Jy-DBg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UY0-6I-p7o">
+                                <rect key="frame" x="10" y="74" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-nx-STS">
+                                <rect key="frame" x="87" y="114" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="IB2-64-NjP"/>
+                                    <constraint firstAttribute="width" secondItem="IhJ-nx-STS" secondAttribute="height" multiplier="1:1" id="VsI-Ru-Zc8"/>
+                                </constraints>
+                                <state key="normal" title="+"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UY0-6I-p7o" firstAttribute="leading" secondItem="064-56-9Rf" secondAttribute="leading" constant="10" id="AMo-60-ymy"/>
+                            <constraint firstItem="IhJ-nx-STS" firstAttribute="top" secondItem="UY0-6I-p7o" secondAttribute="bottom" constant="10" id="FeN-pR-STY"/>
+                            <constraint firstItem="064-56-9Rf" firstAttribute="trailing" secondItem="UY0-6I-p7o" secondAttribute="trailing" constant="10" id="t4z-EE-Acp"/>
+                            <constraint firstItem="IhJ-nx-STS" firstAttribute="centerX" secondItem="064-56-9Rf" secondAttribute="centerX" id="tgk-H0-HKC"/>
+                            <constraint firstItem="UY0-6I-p7o" firstAttribute="top" secondItem="064-56-9Rf" secondAttribute="top" constant="10" id="wsh-w4-wN2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="064-56-9Rf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Menu Group" id="6BK-sU-Zl7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Dgj-UN-XRI">
+                            <connections>
+                                <action selector="didTapSaveButton:" destination="bvi-ed-e7b" id="ESN-xA-WBb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameTextField" destination="UY0-6I-p7o" id="Aif-FC-Yff"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yu1-gl-Utq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2070" y="-134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ei8-NC-ou6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s6W-TR-9qV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xyI-ir-UKo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J4J-df-Ege" kind="relationship" relationship="rootViewController" id="GsT-oP-CKb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4xW-eH-uWQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="144.80000000000001" y="144.3778110944528"/>
         </scene>
     </scenes>
 </document>
