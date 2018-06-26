@@ -46,7 +46,7 @@ extension MenuGroupListInteractor {
     
     func addMenuGroup(name: String, image: UIImage) {
         
-        dbManager.saveMenuGroup(name: name, image: image)
+        dbManager.insertMenuGroup(name: name, image: image)
         
         let viewData = MenuGroupViewData(
             name: name,

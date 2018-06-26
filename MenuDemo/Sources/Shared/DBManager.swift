@@ -5,7 +5,7 @@ final class DBManager {
     
     fileprivate let managedContext = CoreDataManager.sharedManager.persistentContainer.viewContext
     
-    func saveMenuGroup(name: String, image: UIImage) {
+    func insertMenuGroup(name: String, image: UIImage) {
         
         let menuGroup = MenuGroup(context: managedContext)
         menuGroup.name = name
@@ -29,10 +29,10 @@ final class DBManager {
     
     func fetchAllMenuGroups() -> [MenuGroup] {
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MenuGroup")
+        let fetchRequest = NSFetchRequest<MenuGroup>(entityName: MenuGroup.entity().name!)
         do {
-            let items = try managedContext.fetch(fetchRequest) as? [MenuGroup]
-            return items ?? []
+            let items = try managedContext.fetch(fetchRequest)
+            return items
         } catch let error as NSError {
             print("Could not fetch: \(error), \(error.userInfo)")
         }
