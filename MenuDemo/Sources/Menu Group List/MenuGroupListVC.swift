@@ -80,10 +80,6 @@ fileprivate extension MenuGroupListVC {
         interactor.loadData()
     }
     
-    func addMenuGroup(name: String, image: UIImage) {
-        
-    }
-    
 }
 
 // MARK: - UITableViewDataSource
