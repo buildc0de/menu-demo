@@ -2,13 +2,14 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
         <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="menuGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuGroup" inverseName="image" inverseEntity="MenuGroup" syncable="YES"/>
     </entity>
     <entity name="MenuGroup" representedClassName="MenuGroup" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="menuGroup" inverseEntity="Image" syncable="YES"/>
     </entity>
     <elements>
         <element name="MenuGroup" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Image" positionX="-54" positionY="0" width="128" height="60"/>
+        <element name="Image" positionX="-54" positionY="0" width="128" height="75"/>
     </elements>
 </model>

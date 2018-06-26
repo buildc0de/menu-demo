@@ -12,6 +12,9 @@ final class MenuGroupListInteractor {
     // MARK: - Public
     var delegate: InteractorDelegate?
     
+    // MARK: - Private
+    fileprivate var dbManager: DBManager! = DBManager()
+    
 }
 
 // MARK: - Public API
@@ -39,7 +42,7 @@ extension MenuGroupListInteractor {
             viewData: viewData
         )
         
-        // TODO: Save in the DB
+        dbManager.saveMenuGroup(name: name, image: image)
         
         self.delegate?.didInsertItem(viewModel)
         
