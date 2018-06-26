@@ -26,6 +26,7 @@
 		9576B94D20DE83F200D2E328 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94B20DE83F200D2E328 /* LaunchScreen.storyboard */; };
 		9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */; };
 		9576B95B20DEA4D100D2E328 /* MenuGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B95A20DEA4D100D2E328 /* MenuGroupViewModel.swift */; };
+		95DDB19020E2A8DC000569B4 /* MenuGroup+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DDB18F20E2A8DC000569B4 /* MenuGroup+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		9576B94E20DE83F200D2E328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupListInteractor.swift; sourceTree = "<group>"; };
 		9576B95A20DEA4D100D2E328 /* MenuGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupViewModel.swift; sourceTree = "<group>"; };
+		95DDB18F20E2A8DC000569B4 /* MenuGroup+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuGroup+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				95312EEB20E27B8A00132B4C /* Menu.xcdatamodeld */,
+				95DDB18F20E2A8DC000569B4 /* MenuGroup+Additions.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95DDB19020E2A8DC000569B4 /* MenuGroup+Additions.swift in Sources */,
 				95312ED920DEA7B700132B4C /* UIView+Additions.swift in Sources */,
 				9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */,
 				95312EE720E159B700132B4C /* MenuGroupViewData.swift in Sources */,

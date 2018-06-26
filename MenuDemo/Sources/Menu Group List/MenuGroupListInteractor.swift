@@ -29,7 +29,7 @@ extension MenuGroupListInteractor {
             
             let viewData = MenuGroupViewData(
                 name: menuGroup.name ?? "",
-                image: nil
+                image: menuGroup.image
             )
             let viewModel = MenuGroupViewModel(
                 cellType: MenuGroupCell.self,
@@ -55,7 +55,7 @@ extension MenuGroupListInteractor {
         let viewModel = MenuGroupViewModel(
             cellType: MenuGroupCell.self,
             viewData: viewData
-        )        
+        )
         delegate?.didInsertItem(viewModel)
         
     }
