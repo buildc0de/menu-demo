@@ -18,6 +18,7 @@
 		95312EE920E186D000132B4C /* MenuGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95312EE820E186D000132B4C /* MenuGroupCell.xib */; };
 		95312EED20E27B8A00132B4C /* Menu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95312EEB20E27B8A00132B4C /* Menu.xcdatamodeld */; };
 		95312EEF20E27EA200132B4C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EEE20E27EA200132B4C /* CoreDataManager.swift */; };
+		95312EF120E281A500132B4C /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EF020E281A500132B4C /* DBManager.swift */; };
 		9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94220DE83EC00D2E328 /* AppDelegate.swift */; };
 		9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */; };
 		9576B94820DE83EC00D2E328 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94620DE83EC00D2E328 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		95312EE820E186D000132B4C /* MenuGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuGroupCell.xib; sourceTree = "<group>"; };
 		95312EEC20E27B8A00132B4C /* Menu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Menu.xcdatamodel; sourceTree = "<group>"; };
 		95312EEE20E27EA200132B4C /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		95312EF020E281A500132B4C /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		9576B93F20DE83EC00D2E328 /* MenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576B94220DE83EC00D2E328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupListVC.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				95312EEE20E27EA200132B4C /* CoreDataManager.swift */,
+				95312EF020E281A500132B4C /* DBManager.swift */,
 				95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */,
 				95312EE220DF141200132B4C /* SegueHandler.swift */,
 				95312EDA20DEA94400132B4C /* TableViewPresentable.swift */,
@@ -233,6 +236,7 @@
 				95312EE120DF12DB00132B4C /* MenuGroupVC.swift in Sources */,
 				95312EE520E1593D00132B4C /* MenuGroupCell.swift in Sources */,
 				95312EE320DF141200132B4C /* SegueHandler.swift in Sources */,
+				95312EF120E281A500132B4C /* DBManager.swift in Sources */,
 				9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */,
 				9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */,
 				95312EEF20E27EA200132B4C /* CoreDataManager.swift in Sources */,
