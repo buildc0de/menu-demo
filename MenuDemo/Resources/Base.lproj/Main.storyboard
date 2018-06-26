@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -75,22 +74,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-nx-STS">
-                                <rect key="frame" x="87" y="114" width="200" height="200"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3od-g8-B1P">
+                                <rect key="frame" x="10" y="114" width="355" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="IB2-64-NjP"/>
-                                    <constraint firstAttribute="width" secondItem="IhJ-nx-STS" secondAttribute="height" multiplier="1:1" id="VsI-Ru-Zc8"/>
+                                    <constraint firstAttribute="height" constant="300" id="oOG-h7-0KJ"/>
                                 </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IhJ-nx-STS">
+                                <rect key="frame" x="10" y="114" width="355" height="300"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="didTapImagePickerButton:" destination="bvi-ed-e7b" eventType="touchUpInside" id="jub-ev-zXy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3od-g8-B1P" firstAttribute="leading" secondItem="UY0-6I-p7o" secondAttribute="leading" id="7bp-0T-Fwa"/>
                             <constraint firstItem="UY0-6I-p7o" firstAttribute="leading" secondItem="064-56-9Rf" secondAttribute="leading" constant="10" id="AMo-60-ymy"/>
-                            <constraint firstItem="IhJ-nx-STS" firstAttribute="top" secondItem="UY0-6I-p7o" secondAttribute="bottom" constant="10" id="FeN-pR-STY"/>
+                            <constraint firstItem="IhJ-nx-STS" firstAttribute="top" secondItem="3od-g8-B1P" secondAttribute="top" id="Dzs-w5-SGZ"/>
+                            <constraint firstItem="IhJ-nx-STS" firstAttribute="leading" secondItem="3od-g8-B1P" secondAttribute="leading" id="JCC-sB-yOx"/>
+                            <constraint firstItem="IhJ-nx-STS" firstAttribute="trailing" secondItem="3od-g8-B1P" secondAttribute="trailing" id="MwX-eD-vIh"/>
+                            <constraint firstItem="3od-g8-B1P" firstAttribute="trailing" secondItem="UY0-6I-p7o" secondAttribute="trailing" id="ceB-iB-QJC"/>
+                            <constraint firstItem="IhJ-nx-STS" firstAttribute="bottom" secondItem="3od-g8-B1P" secondAttribute="bottom" id="pPj-FG-wPw"/>
                             <constraint firstItem="064-56-9Rf" firstAttribute="trailing" secondItem="UY0-6I-p7o" secondAttribute="trailing" constant="10" id="t4z-EE-Acp"/>
-                            <constraint firstItem="IhJ-nx-STS" firstAttribute="centerX" secondItem="064-56-9Rf" secondAttribute="centerX" id="tgk-H0-HKC"/>
                             <constraint firstItem="UY0-6I-p7o" firstAttribute="top" secondItem="064-56-9Rf" secondAttribute="top" constant="10" id="wsh-w4-wN2"/>
+                            <constraint firstItem="3od-g8-B1P" firstAttribute="top" secondItem="UY0-6I-p7o" secondAttribute="bottom" constant="10" id="yGV-ht-ZtY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="064-56-9Rf"/>
                     </view>
@@ -102,6 +112,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="3od-g8-B1P" id="Zxt-VF-TcY"/>
+                        <outlet property="imageViewHeightConstraint" destination="oOG-h7-0KJ" id="SdD-dd-fas"/>
                         <outlet property="nameTextField" destination="UY0-6I-p7o" id="Aif-FC-Yff"/>
                     </connections>
                 </viewController>

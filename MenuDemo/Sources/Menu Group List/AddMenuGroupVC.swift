@@ -3,19 +3,25 @@ import UIKit
 /// A view controller responsible for adding a new menu group
 final class AddMenuGroupVC: UIViewController {
 
-    // MARK: - @IBActions
+    // MARK: - @IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - @IBOActions
     @IBAction func didTapSaveButton(_ sender: Any) { save() }
+    @IBAction func didTapImagePickerButton(_ sender: Any) { pickImage() }
     
     /// A closure that takes `name: String` and `image: UIImage`
     var completion: ((_ name: String, _ image: UIImage) -> Void)?
     
     // MARK: - Private
-    fileprivate var image: UIImage?
+    fileprivate var image: UIImage? { didSet { updateImageView() }}
+    fileprivate let imagePicker = UIImagePickerController()
     
 }
+
+// MARK: - Helpers
 
 fileprivate extension AddMenuGroupVC {
     
@@ -26,4 +32,42 @@ fileprivate extension AddMenuGroupVC {
         
     }
     
+    func pickImage() {
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true)
+        
+    }
+    
+    func updateImageView() {
+        
+        guard
+            let image = image
+            else { return }
+        
+        let aspectRatio = image.size.height / image.size.width
+        imageViewHeightConstraint.constant = imageView.bounds.width * aspectRatio
+        imageView.image = image
+        
+    }
+    
+}
+
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension AddMenuGroupVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            image = pickedImage
+        }
+        
+        dismiss(animated: true)
+        
+    }
+
 }
