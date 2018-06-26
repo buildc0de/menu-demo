@@ -3,34 +3,52 @@ import UIKit
 
 final class DBManager {
     
-    fileprivate let persistentContainer = CoreDataManager.sharedManager.persistentContainer
-    fileprivate let managedContext = CoreDataManager.sharedManager.persistentContainer.viewContext
+    let persistentContainer: NSPersistentContainer!
     
-    func insertMenuGroup(name: String, image: UIImage) -> MenuGroup {
+    init(container: NSPersistentContainer) {
+        self.persistentContainer = container
+    }
+    
+    convenience init() {
+        self.init(container: CoreDataManager.sharedManager.persistentContainer)
+    }
+    
+}
+
+// MARK: - Public API
+
+extension DBManager {
+    
+    func insertMenuGroup(name: String, image: UIImage?) -> MenuGroup {
         
-        let newMenuGroup = MenuGroup(context: managedContext)
+        let newMenuGroup = MenuGroup(context: persistentContainer.viewContext)
         let menuGroup = updateMenuGroup(newMenuGroup, name: name, image: image)
         
         return menuGroup
         
     }
     
-    func updateMenuGroup(_ menuGroup: MenuGroup, name: String, image: UIImage) -> MenuGroup {
+    func updateMenuGroup(_ menuGroup: MenuGroup, name: String, image: UIImage?) -> MenuGroup {
         
         menuGroup.name = name
         
-        do {
+        if let image = image {
+        
+            do {
+                
+                menuGroup.deleteImage()
+                
+                let imageName = try saveImage(image)
+                menuGroup.imageName = imageName
+                
+            } catch let error as NSError {
+                print("Could not save image: \(error), \(error.userInfo)")
+            }
             
-            menuGroup.deleteImage()
-            let imageName = try saveImage(image)
-            menuGroup.imageName = imageName
-            
-        } catch let error as NSError {
-            print("Could not save image: \(error), \(error.userInfo)")
         }
         
         do {
-            try managedContext.save()
+            try persistentContainer.viewContext.save()
         } catch let error as NSError {
             print("Could not save object: \(error), \(error.userInfo)")
         }
@@ -44,8 +62,8 @@ final class DBManager {
         do {
             
             menuGroup.deleteImage()
-            managedContext.delete(menuGroup)
-            try managedContext.save()
+            persistentContainer.viewContext.delete(menuGroup)
+            try persistentContainer.viewContext.save()
             
         } catch let error as NSError {
             print("Could not save image: \(error), \(error.userInfo)")
@@ -55,9 +73,9 @@ final class DBManager {
     
     func fetchAllMenuGroups() -> [MenuGroup] {
         
-        let fetchRequest = NSFetchRequest<MenuGroup>(entityName: MenuGroup.entity().name!)
+        let fetchRequest = NSFetchRequest<MenuGroup>(entityName: "MenuGroup")
         do {
-            let items = try managedContext.fetch(fetchRequest)
+            let items = try persistentContainer.viewContext.fetch(fetchRequest)
             return items
         } catch let error as NSError {
             print("Could not fetch: \(error), \(error.userInfo)")

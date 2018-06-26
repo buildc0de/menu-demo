@@ -39,7 +39,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="5vx-qC-C0p" firstAttribute="leading" secondItem="RjE-Vs-VVG" secondAttribute="leading" constant="8" id="PTJ-bH-thp"/>
-                    <constraint firstAttribute="bottom" secondItem="5vx-qC-C0p" secondAttribute="bottom" constant="20" id="f1o-QK-Mxg"/>
+                    <constraint firstAttribute="bottom" secondItem="5vx-qC-C0p" secondAttribute="bottom" priority="999" constant="20" id="f1o-QK-Mxg"/>
                     <constraint firstAttribute="trailing" secondItem="5vx-qC-C0p" secondAttribute="trailing" constant="8" id="fKb-Sn-fSQ"/>
                     <constraint firstItem="5vx-qC-C0p" firstAttribute="top" secondItem="RjE-Vs-VVG" secondAttribute="top" constant="20" id="lHG-XN-glD"/>
                 </constraints>
