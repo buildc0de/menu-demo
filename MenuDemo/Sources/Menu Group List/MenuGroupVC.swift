@@ -1,7 +1,7 @@
 import UIKit
 
-/// A view controller responsible for adding a new menu group
-final class AddMenuGroupVC: UIViewController {
+/// A view controller responsible for adding or editing a menu group
+final class MenuGroupVC: UIViewController {
 
     // MARK: - @IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,7 +23,7 @@ final class AddMenuGroupVC: UIViewController {
 
 // MARK: - Helpers
 
-fileprivate extension AddMenuGroupVC {
+fileprivate extension MenuGroupVC {
     
     func save() {
         
@@ -58,7 +58,7 @@ fileprivate extension AddMenuGroupVC {
 
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
-extension AddMenuGroupVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MenuGroupVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         

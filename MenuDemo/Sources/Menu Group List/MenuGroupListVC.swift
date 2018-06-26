@@ -145,7 +145,7 @@ extension MenuGroupListVC: SegueHandler {
         switch identifierCase {
             
         case .addMenuGroup:
-            let vc = segue.destination as! AddMenuGroupVC
+            let vc = segue.destination as! MenuGroupVC
             vc.completion = { name, image in
                 self.interactor.addMenuGroup(name: name, image: image)
             }

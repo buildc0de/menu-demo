@@ -63,7 +63,7 @@
         <!--New Menu Group-->
         <scene sceneID="ibg-4k-syZ">
             <objects>
-                <viewController id="bvi-ed-e7b" customClass="AddMenuGroupVC" customModule="MenuDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bvi-ed-e7b" customClass="MenuGroupVC" customModule="MenuDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Gd-Jy-DBg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
