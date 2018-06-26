@@ -26,6 +26,7 @@
 		9576B94D20DE83F200D2E328 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94B20DE83F200D2E328 /* LaunchScreen.storyboard */; };
 		9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */; };
 		9576B95B20DEA4D100D2E328 /* MenuGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B95A20DEA4D100D2E328 /* MenuGroupViewModel.swift */; };
+		9582E44620E2E1E4009CAAFA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9582E44520E2E1E4009CAAFA /* Localizable.strings */; };
 		95DDB19020E2A8DC000569B4 /* MenuGroup+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DDB18F20E2A8DC000569B4 /* MenuGroup+Additions.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		9576B94E20DE83F200D2E328 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupListInteractor.swift; sourceTree = "<group>"; };
 		9576B95A20DEA4D100D2E328 /* MenuGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupViewModel.swift; sourceTree = "<group>"; };
+		9582E44520E2E1E4009CAAFA /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		95DDB18F20E2A8DC000569B4 /* MenuGroup+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuGroup+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 			children = (
 				9576B94920DE83F200D2E328 /* Assets.xcassets */,
 				9576B94B20DE83F200D2E328 /* LaunchScreen.storyboard */,
+				9582E44520E2E1E4009CAAFA /* Localizable.strings */,
 				9576B94620DE83EC00D2E328 /* Main.storyboard */,
 			);
 			path = Resources;
@@ -215,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9582E44620E2E1E4009CAAFA /* Localizable.strings in Resources */,
 				95312EE920E186D000132B4C /* MenuGroupCell.xib in Resources */,
 				9576B94D20DE83F200D2E328 /* LaunchScreen.storyboard in Resources */,
 				9576B94A20DE83F200D2E328 /* Assets.xcassets in Resources */,

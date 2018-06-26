@@ -3,6 +3,7 @@ import UIKit
 protocol InteractorOutput: class {
     
     func showItems()
+    func updateItem(at indexPath: IndexPath)
     func deleteItem(at indexPath: IndexPath)
     
 }
@@ -39,6 +40,16 @@ extension MenuGroupListInteractor {
         
     }
 
+    func editMenuGroup(name: String, image: UIImage, indexPath: IndexPath) {
+        
+        let menuGroup = data[indexPath.row]
+        let editedMenuGroup = dbManager.updateMenuGroup(menuGroup, name: name, image: image)
+        data[indexPath.row] = editedMenuGroup
+        
+        output?.updateItem(at: indexPath)
+        
+    }
+    
     func deleteItem(at indexPath: IndexPath) {
 
         let menuGroup = data[indexPath.row]
@@ -46,6 +57,13 @@ extension MenuGroupListInteractor {
         data.remove(at: indexPath.row)
         
         output?.deleteItem(at: indexPath)
+        
+    }
+    
+    func editData(for indexPath: IndexPath) -> (name: String?, image: UIImage?) {
+        
+        let menuGroup = data[indexPath.row]
+        return (menuGroup.name, menuGroup.image)
         
     }
     

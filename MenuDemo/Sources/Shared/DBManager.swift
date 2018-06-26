@@ -8,11 +8,20 @@ final class DBManager {
     
     func insertMenuGroup(name: String, image: UIImage) -> MenuGroup {
         
-        let menuGroup = MenuGroup(context: managedContext)
+        let newMenuGroup = MenuGroup(context: managedContext)
+        let menuGroup = updateMenuGroup(newMenuGroup, name: name, image: image)
+        
+        return menuGroup
+        
+    }
+    
+    func updateMenuGroup(_ menuGroup: MenuGroup, name: String, image: UIImage) -> MenuGroup {
+        
         menuGroup.name = name
         
         do {
             
+            menuGroup.deleteImage()
             let imageName = try saveImage(image)
             menuGroup.imageName = imageName
             

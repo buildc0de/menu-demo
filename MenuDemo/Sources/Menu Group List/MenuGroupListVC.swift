@@ -5,6 +5,7 @@ final class MenuGroupListVC: UITableViewController, EmptyStatePresenting {
 
     enum SegueIdentifier: String {
         case addMenuGroup
+        case editMenuGroup
     }
 
     // MARK: - @IBOutlets
@@ -13,6 +14,7 @@ final class MenuGroupListVC: UITableViewController, EmptyStatePresenting {
     // MARK: - Private
     fileprivate var interactor: MenuGroupListInteractor!
     fileprivate var data: [TableViewPresentable] { return interactor.menuGroups }
+    fileprivate var selectedIndexPath: IndexPath?
     
     // MARK: - EmptyStatePresenting
     var hasContent: Bool { return data.count > 0 }
@@ -111,6 +113,13 @@ extension MenuGroupListVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
     
+    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        selectedIndexPath = indexPath
+        performSegue(withIdentifier: SegueIdentifier.editMenuGroup.rawValue, sender: self)
+        
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
@@ -140,6 +149,10 @@ extension MenuGroupListVC: InteractorOutput {
         
     }
     
+    func updateItem(at indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
 }
 
 // MARK: - Segues
@@ -156,6 +169,23 @@ extension MenuGroupListVC: SegueHandler {
             let vc = segue.destination as! MenuGroupVC
             vc.completion = { name, image in
                 self.interactor.addMenuGroup(name: name, image: image)
+            }
+            
+        case .editMenuGroup:
+            
+            if let indexPath = selectedIndexPath {
+                
+                let vc = segue.destination as! MenuGroupVC
+                vc.viewMode = .edit
+                
+                let editData = interactor.editData(for: indexPath)
+                vc.name = editData.name
+                vc.image = editData.image
+                
+                vc.completion = { name, image in
+                    self.interactor.editMenuGroup(name: name, image: image, indexPath: indexPath)
+                }
+                
             }
             
         }
