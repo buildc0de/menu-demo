@@ -12,7 +12,7 @@ final class MenuGroupListVC: UITableViewController, EmptyStatePresenting {
     
     // MARK: - Private
     fileprivate var interactor: MenuGroupListInteractor!
-    fileprivate var data: [TableViewPresentable] = [] { didSet { updateEmptyView() }}
+    fileprivate var data: [TableViewPresentable] { return interactor.menuGroups }
     
     // MARK: - EmptyStatePresenting
     var hasContent: Bool { return data.count > 0 }
@@ -45,7 +45,7 @@ fileprivate extension MenuGroupListVC {
     func configureInteractor() {
         
         interactor = MenuGroupListInteractor()
-        interactor.delegate = self
+        interactor.output = self
         
     }
     
@@ -123,26 +123,19 @@ extension MenuGroupListVC {
 
 // MARK: - InteractorDelegate
 
-extension MenuGroupListVC: InteractorDelegate {
+extension MenuGroupListVC: InteractorOutput {
     
-    func didLoadData(_ data: [TableViewPresentable]) {
+    func showItems() {
         
-        self.data = data
         tableView.refreshControl?.endRefreshing()
-        tableView.reloadData()
-        
-    }
-    
-    func didInsertItem(_ item: TableViewPresentable) {
-        
-        data += [item]
+        updateEmptyView()
         tableView.reloadData()
         
     }
     
     func deleteItem(at indexPath: IndexPath) {
         
-        data.remove(at: indexPath.row)
+        updateEmptyView()
         tableView.deleteRows(at: [indexPath], with: .automatic)
         
     }
