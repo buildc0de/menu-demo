@@ -15,8 +15,20 @@ extension MenuGroupCell: Updatable {
     
     func update(with viewData: ViewData) {
         
-        let aspectRatio = viewData.image.size.height / viewData.image.size.width
-        imageViewHeightConstraint.constant = groupImageView.bounds.width * aspectRatio
+        let imageHeight = viewData.image.size.height
+        let imageWidth = viewData.image.size.width
+        
+        if
+            imageHeight > 0,
+            imageWidth > 0 {
+            
+            let aspectRatio = imageHeight / imageWidth
+            imageViewHeightConstraint.constant = groupImageView.bounds.width * aspectRatio
+            
+        } else {
+            imageViewHeightConstraint.constant = 0
+        }
+        
         groupImageView.image = viewData.image
         name.text = viewData.name
         
