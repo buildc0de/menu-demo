@@ -16,6 +16,7 @@
 		95312EE520E1593D00132B4C /* MenuGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EE420E1593D00132B4C /* MenuGroupCell.swift */; };
 		95312EE720E159B700132B4C /* MenuGroupViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95312EE620E159B700132B4C /* MenuGroupViewData.swift */; };
 		95312EE920E186D000132B4C /* MenuGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95312EE820E186D000132B4C /* MenuGroupCell.xib */; };
+		95312EED20E27B8A00132B4C /* Menu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95312EEB20E27B8A00132B4C /* Menu.xcdatamodeld */; };
 		9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94220DE83EC00D2E328 /* AppDelegate.swift */; };
 		9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */; };
 		9576B94820DE83EC00D2E328 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9576B94620DE83EC00D2E328 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		95312EE420E1593D00132B4C /* MenuGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupCell.swift; sourceTree = "<group>"; };
 		95312EE620E159B700132B4C /* MenuGroupViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupViewData.swift; sourceTree = "<group>"; };
 		95312EE820E186D000132B4C /* MenuGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuGroupCell.xib; sourceTree = "<group>"; };
+		95312EEC20E27B8A00132B4C /* Menu.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Menu.xcdatamodel; sourceTree = "<group>"; };
 		9576B93F20DE83EC00D2E328 /* MenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9576B94220DE83EC00D2E328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGroupListVC.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		95312EEA20E27B6200132B4C /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				95312EEB20E27B8A00132B4C /* Menu.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		9576B93620DE83EC00D2E328 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 		9576B94120DE83EC00D2E328 /* MenuDemo */ = {
 			isa = PBXGroup;
 			children = (
+				95312EEA20E27B6200132B4C /* Core Data */,
 				9576B95920DEA0EE00D2E328 /* Resources */,
 				9576B95720DEA0B000D2E328 /* Sources */,
 				9576B95620DEA09C00D2E328 /* Supporting Files */,
@@ -116,11 +127,11 @@
 		9576B95820DEA0C100D2E328 /* Menu Group List */ = {
 			isa = PBXGroup;
 			children = (
-				95312EE020DF12DB00132B4C /* MenuGroupVC.swift */,
 				95312EE420E1593D00132B4C /* MenuGroupCell.swift */,
 				95312EE820E186D000132B4C /* MenuGroupCell.xib */,
 				9576B95420DE9FDA00D2E328 /* MenuGroupListInteractor.swift */,
 				9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */,
+				95312EE020DF12DB00132B4C /* MenuGroupVC.swift */,
 				95312EE620E159B700132B4C /* MenuGroupViewData.swift */,
 				9576B95A20DEA4D100D2E328 /* MenuGroupViewModel.swift */,
 			);
@@ -213,6 +224,7 @@
 				9576B94520DE83EC00D2E328 /* MenuGroupListVC.swift in Sources */,
 				95312EE720E159B700132B4C /* MenuGroupViewData.swift in Sources */,
 				9576B95B20DEA4D100D2E328 /* MenuGroupViewModel.swift in Sources */,
+				95312EED20E27B8A00132B4C /* Menu.xcdatamodeld in Sources */,
 				95312ED720DEA78E00132B4C /* Updatable.swift in Sources */,
 				95312EDD20DEC6CD00132B4C /* EmptyStatePresenting.swift in Sources */,
 				95312EE120DF12DB00132B4C /* MenuGroupVC.swift in Sources */,
@@ -418,6 +430,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		95312EEB20E27B8A00132B4C /* Menu.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				95312EEC20E27B8A00132B4C /* Menu.xcdatamodel */,
+			);
+			currentVersion = 95312EEC20E27B8A00132B4C /* Menu.xcdatamodel */;
+			path = Menu.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9576B93720DE83EC00D2E328 /* Project object */;
 }
