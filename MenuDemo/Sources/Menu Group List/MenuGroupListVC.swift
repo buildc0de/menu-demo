@@ -111,6 +111,14 @@ extension MenuGroupListVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            interactor.deleteItem(at: indexPath)
+        }
+        
+    }
+    
 }
 
 // MARK: - InteractorDelegate
@@ -129,6 +137,13 @@ extension MenuGroupListVC: InteractorDelegate {
         
         data += [item]
         tableView.reloadData()
+        
+    }
+    
+    func deleteItem(at indexPath: IndexPath) {
+        
+        data.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
         
     }
     

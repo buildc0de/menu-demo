@@ -4,6 +4,7 @@ protocol InteractorDelegate: class {
     
     func didLoadData(_ data: [TableViewPresentable])
     func didInsertItem(_ item: TableViewPresentable)
+    func deleteItem(at indexPath: IndexPath)
     
 }
 
@@ -14,6 +15,7 @@ final class MenuGroupListInteractor {
     
     // MARK: - Private
     fileprivate var dbManager: DBManager! = DBManager()
+    fileprivate var data: [MenuGroup] = []
     
 }
 
@@ -23,9 +25,9 @@ extension MenuGroupListInteractor {
     
     func loadData() {
         
-        let menuGroups = dbManager.fetchAllMenuGroups()
+        data = dbManager.fetchAllMenuGroups()
         
-        let items = menuGroups.map { (menuGroup) -> TableViewPresentable in
+        let items = data.map { (menuGroup) -> TableViewPresentable in
             
             let viewData = MenuGroupViewData(
                 name: menuGroup.name ?? "",
@@ -46,7 +48,9 @@ extension MenuGroupListInteractor {
     
     func addMenuGroup(name: String, image: UIImage) {
         
-        dbManager.insertMenuGroup(name: name, image: image)
+        let menuGroup = dbManager.insertMenuGroup(name: name, image: image)
+        
+        data += [menuGroup]
         
         let viewData = MenuGroupViewData(
             name: name,
@@ -57,6 +61,15 @@ extension MenuGroupListInteractor {
             viewData: viewData
         )
         delegate?.didInsertItem(viewModel)
+        
+    }
+
+    func deleteItem(at indexPath: IndexPath) {
+
+        let menuGroup = data[indexPath.row]
+        dbManager.delete(menuGroup)
+        data.remove(at: indexPath.row)
+        delegate?.deleteItem(at: indexPath)
         
     }
     

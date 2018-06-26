@@ -3,9 +3,10 @@ import UIKit
 
 final class DBManager {
     
+    fileprivate let persistentContainer = CoreDataManager.sharedManager.persistentContainer
     fileprivate let managedContext = CoreDataManager.sharedManager.persistentContainer.viewContext
     
-    func insertMenuGroup(name: String, image: UIImage) {
+    func insertMenuGroup(name: String, image: UIImage) -> MenuGroup {
         
         let menuGroup = MenuGroup(context: managedContext)
         menuGroup.name = name
@@ -23,6 +24,22 @@ final class DBManager {
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save object: \(error), \(error.userInfo)")
+        }
+        
+        return menuGroup
+        
+    }
+    
+    func delete(_ menuGroup: MenuGroup) {
+
+        do {
+            
+            menuGroup.deleteImage()
+            managedContext.delete(menuGroup)
+            try managedContext.save()
+            
+        } catch let error as NSError {
+            print("Could not save image: \(error), \(error.userInfo)")
         }
         
     }
@@ -53,8 +70,7 @@ fileprivate extension DBManager {
         let imageData = UIImagePNGRepresentation(image)
         let imageName = "\(imageUUID).png"
         
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let url = documentsURL.appendingPathComponent(imageName)
+        let url = MenuGroup.imageFolderURL.appendingPathComponent(imageName)
         try imageData?.write(to: url, options: .atomic)
         
         return imageName
