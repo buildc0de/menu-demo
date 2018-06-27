@@ -1,6 +1,6 @@
 import UIKit
 
-protocol InteractorOutput: class {
+protocol InteractorOutput: class, ErrorPresenting {
     
     func showItems()
     func updateItem(at indexPath: IndexPath)
@@ -26,37 +26,58 @@ extension MenuGroupListInteractor {
     
     func loadData() {
         
-        data = dbManager.fetchAllMenuGroups()
-        output?.showItems()
+        do {
+            data = try dbManager.fetchAllMenuGroups()
+            output?.showItems()
+        } catch {
+            output?.presentError(error)
+        }
         
     }
     
     func addMenuGroup(name: String, image: UIImage) {
         
-        let menuGroup = dbManager.insertMenuGroup(name: name, image: image)
-        data += [menuGroup]
-        
-        output?.showItems()
+        do {
+            
+            let menuGroup = try dbManager.insertMenuGroup(name: name, image: image)
+            data += [menuGroup]
+            output?.showItems()
+            
+        } catch {
+            output?.presentError(error)
+        }
         
     }
 
     func editMenuGroup(name: String, image: UIImage, indexPath: IndexPath) {
         
         let menuGroup = data[indexPath.row]
-        let editedMenuGroup = dbManager.updateMenuGroup(menuGroup, name: name, image: image)
-        data[indexPath.row] = editedMenuGroup
         
-        output?.updateItem(at: indexPath)
+        do {
+            
+            let editedMenuGroup = try dbManager.updateMenuGroup(menuGroup, name: name, image: image)
+            data[indexPath.row] = editedMenuGroup
+            output?.updateItem(at: indexPath)
+            
+        } catch {
+            output?.presentError(error)
+        }
         
     }
     
     func deleteItem(at indexPath: IndexPath) {
 
         let menuGroup = data[indexPath.row]
-        dbManager.delete(menuGroup)
-        data.remove(at: indexPath.row)
         
-        output?.deleteItem(at: indexPath)
+        do {
+            
+            try dbManager.delete(menuGroup)
+            data.remove(at: indexPath.row)
+            output?.deleteItem(at: indexPath)
+            
+        } catch {
+            output?.presentError(error)
+        }
         
     }
     

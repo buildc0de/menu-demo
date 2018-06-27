@@ -19,16 +19,16 @@ final class DBManager {
 
 extension DBManager {
     
-    func insertMenuGroup(name: String, image: UIImage?) -> MenuGroup {
+    func insertMenuGroup(name: String, image: UIImage?) throws -> MenuGroup {
         
         let newMenuGroup = MenuGroup(context: persistentContainer.viewContext)
-        let menuGroup = updateMenuGroup(newMenuGroup, name: name, image: image)
+        let menuGroup = try updateMenuGroup(newMenuGroup, name: name, image: image)
         
         return menuGroup
         
     }
     
-    func updateMenuGroup(_ menuGroup: MenuGroup, name: String, image: UIImage?) -> MenuGroup {
+    func updateMenuGroup(_ menuGroup: MenuGroup, name: String, image: UIImage?) throws -> MenuGroup {
         
         menuGroup.name = name
         
@@ -41,23 +41,25 @@ extension DBManager {
                 let imageName = try saveImage(image)
                 menuGroup.imageName = imageName
                 
-            } catch let error as NSError {
-                print("Could not save image: \(error), \(error.userInfo)")
+            } catch {
+                print("Could not save image: \(error)")
+                throw DBError.unableToSaveData
             }
             
         }
         
         do {
             try persistentContainer.viewContext.save()
-        } catch let error as NSError {
-            print("Could not save object: \(error), \(error.userInfo)")
+        } catch {
+            print("Could not save object: \(error)")
+            throw DBError.unableToSaveData
         }
         
         return menuGroup
         
     }
     
-    func delete(_ menuGroup: MenuGroup) {
+    func delete(_ menuGroup: MenuGroup) throws {
 
         do {
             
@@ -65,23 +67,23 @@ extension DBManager {
             persistentContainer.viewContext.delete(menuGroup)
             try persistentContainer.viewContext.save()
             
-        } catch let error as NSError {
-            print("Could not save image: \(error), \(error.userInfo)")
+        } catch {
+            print("Could not save image: \(error)")
+            throw DBError.unableToSaveData
         }
         
     }
     
-    func fetchAllMenuGroups() -> [MenuGroup] {
+    func fetchAllMenuGroups() throws -> [MenuGroup] {
         
         let fetchRequest = NSFetchRequest<MenuGroup>(entityName: "MenuGroup")
         do {
             let items = try persistentContainer.viewContext.fetch(fetchRequest)
             return items
-        } catch let error as NSError {
-            print("Could not fetch: \(error), \(error.userInfo)")
+        } catch {
+            print("Could not fetch: \(error)")
+            throw DBError.unableToFetchData
         }
-        
-        return []
         
     }
 

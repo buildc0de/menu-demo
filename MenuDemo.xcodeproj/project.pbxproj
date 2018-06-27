@@ -30,6 +30,8 @@
 		9582E44E20E2F9F6009CAAFA /* MenuDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9582E44D20E2F9F6009CAAFA /* MenuDemoTests.swift */; };
 		9582E45520E2FC0E009CAAFA /* Menu.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95312EEB20E27B8A00132B4C /* Menu.xcdatamodeld */; };
 		95DDB19020E2A8DC000569B4 /* MenuGroup+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DDB18F20E2A8DC000569B4 /* MenuGroup+Additions.swift */; };
+		95EE19DF20E3A656009AD107 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19DE20E3A656009AD107 /* Error.swift */; };
+		95EE19E120E3A7E9009AD107 /* ErrorPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19E020E3A7E9009AD107 /* ErrorPresenting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		9582E44D20E2F9F6009CAAFA /* MenuDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDemoTests.swift; sourceTree = "<group>"; };
 		9582E44F20E2F9F6009CAAFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95DDB18F20E2A8DC000569B4 /* MenuGroup+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MenuGroup+Additions.swift"; sourceTree = "<group>"; };
+		95EE19DE20E3A656009AD107 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		95EE19E020E3A7E9009AD107 /* ErrorPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				95312EEE20E27EA200132B4C /* CoreDataManager.swift */,
 				95312EF020E281A500132B4C /* DBManager.swift */,
 				95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */,
+				95EE19DE20E3A656009AD107 /* Error.swift */,
+				95EE19E020E3A7E9009AD107 /* ErrorPresenting.swift */,
 				95312EE220DF141200132B4C /* SegueHandler.swift */,
 				95312EDA20DEA94400132B4C /* TableViewPresentable.swift */,
 				95312ED820DEA7B700132B4C /* UIView+Additions.swift */,
@@ -305,11 +311,13 @@
 				95312ED720DEA78E00132B4C /* Updatable.swift in Sources */,
 				95312EDD20DEC6CD00132B4C /* EmptyStatePresenting.swift in Sources */,
 				95312EE120DF12DB00132B4C /* MenuGroupVC.swift in Sources */,
+				95EE19DF20E3A656009AD107 /* Error.swift in Sources */,
 				95312EE520E1593D00132B4C /* MenuGroupCell.swift in Sources */,
 				95312EE320DF141200132B4C /* SegueHandler.swift in Sources */,
 				95312EF120E281A500132B4C /* DBManager.swift in Sources */,
 				9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */,
 				9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */,
+				95EE19E120E3A7E9009AD107 /* ErrorPresenting.swift in Sources */,
 				95312EEF20E27EA200132B4C /* CoreDataManager.swift in Sources */,
 				95312EDB20DEA94400132B4C /* TableViewPresentable.swift in Sources */,
 			);

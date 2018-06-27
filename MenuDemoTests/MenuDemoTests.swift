@@ -54,7 +54,7 @@ class MenuDemoTests: XCTestCase {
             let object = NSEntityDescription.insertNewObject(
                 forEntityName: "MenuGroup",
                 into: mockPersistantContainer.viewContext
-            )            
+            )
             object.setValue(name, forKey: "name")
             
             return object as? MenuGroup
@@ -103,7 +103,7 @@ class MenuDemoTests: XCTestCase {
     
     func testFetchAllMenuGroups() {
         
-        let results = dbManager.fetchAllMenuGroups()
+        let results = try! dbManager.fetchAllMenuGroups()
         XCTAssertEqual(results.count, 5)
         
     }
@@ -111,7 +111,7 @@ class MenuDemoTests: XCTestCase {
     func testCreateMenuGroup() {
 
         let name = "1"
-        let menuGroup = dbManager.insertMenuGroup(name: name, image: nil)
+        let menuGroup = try! dbManager.insertMenuGroup(name: name, image: nil)
 
         XCTAssertNotNil(menuGroup)
 
@@ -119,12 +119,12 @@ class MenuDemoTests: XCTestCase {
 
     func testDeleteMenuGroup() {
         
-        let items = dbManager.fetchAllMenuGroups()
+        let items = try! dbManager.fetchAllMenuGroups()
         let item = items[0]
         
         let numberOfItems = items.count
         
-        dbManager.delete(item)
+        try! dbManager.delete(item)
         
         XCTAssertEqual(numberOfItemsInPersistentStore, numberOfItems - 1)
         
@@ -132,11 +132,11 @@ class MenuDemoTests: XCTestCase {
 
     func testUpdateMenuGroup() {
 
-        let items = dbManager.fetchAllMenuGroups()
+        let items = try! dbManager.fetchAllMenuGroups()
         let item = items[0]
 
         let editedName = "Edited Name"
-        let editedItem = dbManager.updateMenuGroup(item, name: editedName, image: nil)
+        let editedItem = try! dbManager.updateMenuGroup(item, name: editedName, image: nil)
 
         XCTAssertEqual(editedItem.name, editedName)
 

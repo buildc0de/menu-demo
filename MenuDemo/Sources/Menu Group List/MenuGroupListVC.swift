@@ -1,7 +1,7 @@
 import UIKit
 
 /// A view controller responsible for displaying a list of menu groups
-final class MenuGroupListVC: UITableViewController, EmptyStatePresenting {
+final class MenuGroupListVC: UITableViewController, EmptyStatePresenting, ErrorPresenting {
 
     enum SegueIdentifier: String {
         case addMenuGroup

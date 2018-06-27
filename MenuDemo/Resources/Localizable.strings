@@ -1,3 +1,8 @@
 // Menu Group VC
 "menu-group.title.add" = "Add Menu Group";
 "menu-group.title.edit" = "Edit Menu Group";
+
+// Errors
+"generic-error-title" = "Error";
+"dbmanager.unable-to-fetch-data" = "Unable to fetch data";
+"dbmanager.unable-to-save-data" = "Unable to save data";
