@@ -2,6 +2,10 @@
 "menu-group.title.add" = "Add Menu Group";
 "menu-group.title.edit" = "Edit Menu Group";
 
+// Menu Item VC
+"menu-item.title.add" = "Add Menu Item";
+"menu-item.title.edit" = "Edit Menu Item";
+
 // Errors
 "generic-error-title" = "Error";
 "dbmanager.unable-to-fetch-data" = "Unable to fetch data";

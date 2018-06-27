@@ -3,8 +3,15 @@
     <entity name="MenuGroup" representedClassName="MenuGroup" syncable="YES" codeGenerationType="class">
         <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="menuGroup" inverseEntity="MenuItem" syncable="YES"/>
+    </entity>
+    <entity name="MenuItem" representedClassName="MenuItem" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="menuGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuGroup" inverseName="relationship" inverseEntity="MenuGroup" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MenuGroup" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="MenuGroup" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="MenuItem" positionX="-63" positionY="-27" width="128" height="90"/>
     </elements>
 </model>

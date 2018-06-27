@@ -33,6 +33,7 @@
                     <connections>
                         <outlet property="emptyView" destination="nZI-Ei-fhf" id="nvo-eG-0NG"/>
                         <segue destination="bvi-ed-e7b" kind="show" identifier="editMenuGroup" id="mRH-T1-sTR"/>
+                        <segue destination="tQn-iT-8eN" kind="show" identifier="showMenuItems" id="3qW-dq-QVG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jE2-8k-cq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,6 +61,96 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1084" y="144.3778110944528"/>
+        </scene>
+        <!--Menu Items-->
+        <scene sceneID="C5o-wb-5JS">
+            <objects>
+                <tableViewController id="tQn-iT-8eN" customClass="MenuItemListVC" customModule="MenuDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YOU-a5-v7R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="tQn-iT-8eN" id="aRd-et-7Gi"/>
+                            <outlet property="delegate" destination="tQn-iT-8eN" id="KhR-KN-5H9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Menu Items" id="Mrz-6e-MSG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gRw-Rt-EPu">
+                            <connections>
+                                <segue destination="oUE-7n-9z2" kind="show" identifier="addMenuItem" id="Shv-Yx-Yxc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="oUE-7n-9z2" kind="show" identifier="editMenuItem" id="deH-uD-hz6"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beu-wg-ayC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="853"/>
+        </scene>
+        <!--Menu ItemVC-->
+        <scene sceneID="Xz5-PE-KEY">
+            <objects>
+                <viewController id="oUE-7n-9z2" customClass="MenuItemVC" customModule="MenuDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XgX-sg-s8N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7Y-wa-S1Z">
+                                <rect key="frame" x="10" y="114" width="355" height="300"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="didTapImagePickerButton:" destination="oUE-7n-9z2" eventType="touchUpInside" id="53T-By-udp"/>
+                                    <action selector="didTapImagePickerButton:" destination="bvi-ed-e7b" eventType="touchUpInside" id="qIc-dc-B0c"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gPV-7Z-WIt">
+                                <rect key="frame" x="10" y="74" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iIx-dI-Tnq">
+                                <rect key="frame" x="10" y="114" width="355" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="bhC-Q5-x1y"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="v7Y-wa-S1Z" firstAttribute="leading" secondItem="iIx-dI-Tnq" secondAttribute="leading" id="DYL-fe-V3Y"/>
+                            <constraint firstItem="iIx-dI-Tnq" firstAttribute="top" secondItem="gPV-7Z-WIt" secondAttribute="bottom" constant="10" id="JQ7-ri-alp"/>
+                            <constraint firstItem="v7Y-wa-S1Z" firstAttribute="trailing" secondItem="iIx-dI-Tnq" secondAttribute="trailing" id="ShG-be-4ke"/>
+                            <constraint firstItem="hfV-Tk-dw1" firstAttribute="trailing" secondItem="gPV-7Z-WIt" secondAttribute="trailing" constant="10" id="cxr-vE-gRY"/>
+                            <constraint firstItem="gPV-7Z-WIt" firstAttribute="leading" secondItem="hfV-Tk-dw1" secondAttribute="leading" constant="10" id="e6o-VN-Hho"/>
+                            <constraint firstItem="iIx-dI-Tnq" firstAttribute="trailing" secondItem="gPV-7Z-WIt" secondAttribute="trailing" id="gkO-jH-fL2"/>
+                            <constraint firstItem="v7Y-wa-S1Z" firstAttribute="top" secondItem="iIx-dI-Tnq" secondAttribute="top" id="jTK-9u-7tN"/>
+                            <constraint firstItem="gPV-7Z-WIt" firstAttribute="top" secondItem="hfV-Tk-dw1" secondAttribute="top" constant="10" id="k3g-xq-exw"/>
+                            <constraint firstItem="iIx-dI-Tnq" firstAttribute="leading" secondItem="gPV-7Z-WIt" secondAttribute="leading" id="pny-j7-Bvv"/>
+                            <constraint firstItem="v7Y-wa-S1Z" firstAttribute="bottom" secondItem="iIx-dI-Tnq" secondAttribute="bottom" id="sgc-nB-RyY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hfV-Tk-dw1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VuT-2F-Zn3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Znn-z4-3DH">
+                            <connections>
+                                <action selector="didTapSaveButton:" destination="oUE-7n-9z2" id="Mw4-ed-VeA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="iIx-dI-Tnq" id="GOy-qu-FcM"/>
+                        <outlet property="imageViewHeightConstraint" destination="bhC-Q5-x1y" id="nnU-69-X8O"/>
+                        <outlet property="nameTextField" destination="gPV-7Z-WIt" id="nSx-Oa-2XM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eo7-BU-1Xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1940" y="852"/>
         </scene>
         <!--Menu GroupVC-->
         <scene sceneID="ibg-4k-syZ">
@@ -120,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yu1-gl-Utq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1930" y="144"/>
+            <point key="canvasLocation" x="1940" y="144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ei8-NC-ou6">
@@ -142,6 +233,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mRH-T1-sTR"/>
+        <segue reference="av9-dK-LLO"/>
+        <segue reference="deH-uD-hz6"/>
     </inferredMetricsTieBreakers>
 </document>

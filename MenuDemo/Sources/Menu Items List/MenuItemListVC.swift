@@ -1,20 +1,22 @@
 import UIKit
 
-/// A view controller responsible for displaying a list of menu groups
-final class MenuGroupListVC: UITableViewController, EmptyStatePresenting, ErrorPresenting {
-
+/// A view controller responsible for displaying a list of menu items
+final class MenuItemListVC: UITableViewController, EmptyStatePresenting, ErrorPresenting {
+    
     enum SegueIdentifier: String {
-        case addMenuGroup
-        case editMenuGroup
-        case showMenuItems
+        case addMenuItem
+        case editMenuItem
     }
-
+    
     // MARK: - @IBOutlets
     @IBOutlet weak var emptyView: UIView!
+
+    // MARK: - Public
+    var menuGroupID: URL!
     
     // MARK: - Private
-    fileprivate var interactor: MenuGroupListInteractor!
-    fileprivate var data: [TableViewPresentable] { return interactor.menuGroups }
+    fileprivate var interactor: MenuItemListInteractor!
+    fileprivate var data: [TableViewPresentable] { return interactor.menuItems }
     fileprivate var selectedIndexPath: IndexPath?
     
     // MARK: - EmptyStatePresenting
@@ -24,7 +26,7 @@ final class MenuGroupListVC: UITableViewController, EmptyStatePresenting, ErrorP
 
 // MARK: - Lifecycle
 
-extension MenuGroupListVC {
+extension MenuItemListVC {
     
     override func viewDidLoad() {
         
@@ -43,11 +45,11 @@ extension MenuGroupListVC {
 
 // MARK: - Configuration
 
-fileprivate extension MenuGroupListVC {
-
+fileprivate extension MenuItemListVC {
+    
     func configureInteractor() {
         
-        interactor = MenuGroupListInteractor()
+        interactor = MenuItemListInteractor(menuGroupID: menuGroupID)
         interactor.output = self
         
     }
@@ -56,7 +58,7 @@ fileprivate extension MenuGroupListVC {
         
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
-
+        
     }
     
     func configureTableView() {
@@ -70,7 +72,7 @@ fileprivate extension MenuGroupListVC {
 
 // MARK: - Helpers
 
-fileprivate extension MenuGroupListVC {
+fileprivate extension MenuItemListVC {
     
     @objc func refresh() {
         
@@ -87,7 +89,7 @@ fileprivate extension MenuGroupListVC {
 
 // MARK: - UITableViewDataSource
 
-extension MenuGroupListVC {
+extension MenuItemListVC {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -110,20 +112,13 @@ extension MenuGroupListVC {
 
 // MARK: - UITableViewDelegate
 
-extension MenuGroupListVC {
+extension MenuItemListVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         selectedIndexPath = indexPath
-        performSegue(withIdentifier: SegueIdentifier.showMenuItems.rawValue, sender: self)
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        
-        selectedIndexPath = indexPath
-        performSegue(withIdentifier: SegueIdentifier.editMenuGroup.rawValue, sender: self)
-        
+        performSegue(withIdentifier: SegueIdentifier.editMenuItem.rawValue, sender: self)
+
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -138,7 +133,7 @@ extension MenuGroupListVC {
 
 // MARK: - InteractorDelegate
 
-extension MenuGroupListVC: InteractorOutput {
+extension MenuItemListVC: InteractorOutput {
     
     func showItems() {
         
@@ -163,7 +158,7 @@ extension MenuGroupListVC: InteractorOutput {
 
 // MARK: - Segues
 
-extension MenuGroupListVC: SegueHandler {
+extension MenuItemListVC: SegueHandler {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -171,36 +166,25 @@ extension MenuGroupListVC: SegueHandler {
         
         switch identifierCase {
             
-        case .addMenuGroup:
-            let vc = segue.destination as! MenuGroupVC
-            vc.completion = { name, image in
-                self.interactor.addMenuGroup(name: name, image: image)
+        case .addMenuItem:
+            let vc = segue.destination as! MenuItemVC
+            vc.completion = { name, price, image in
+                self.interactor.addMenuItem(name: name, price: price, image: image)
             }
             
-        case .editMenuGroup:
+        case .editMenuItem:
             
             if let indexPath = selectedIndexPath {
                 
-                let vc = segue.destination as! MenuGroupVC
+                let vc = segue.destination as! MenuItemVC
                 vc.viewMode = .edit
                 
                 let editData = interactor.editData(for: indexPath)
                 vc.name = editData.name
-                vc.image = editData.image
                 
-                vc.completion = { name, image in
-                    self.interactor.editMenuGroup(name: name, image: image, indexPath: indexPath)
+                vc.completion = { name, price, image in
+                    self.interactor.editMenuItem(name: name, price: price, image: image, indexPath: indexPath)
                 }
-                
-            }
-            
-        case .showMenuItems:
-
-            if let indexPath = selectedIndexPath {
-                
-                let menuGroupID = interactor.menuGroupID(for: indexPath)
-                let vc = segue.destination as! MenuItemListVC
-                vc.menuGroupID = menuGroupID
                 
             }
             

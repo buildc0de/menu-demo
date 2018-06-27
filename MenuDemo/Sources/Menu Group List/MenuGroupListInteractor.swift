@@ -88,6 +88,13 @@ extension MenuGroupListInteractor {
         
     }
     
+    func menuGroupID(for indexPath: IndexPath) -> URL {
+        
+        let menuGroup = data[indexPath.row]
+        return menuGroup.objectID.uriRepresentation()
+        
+    }
+    
 }
 
 // MARK: - Helpers
@@ -102,7 +109,7 @@ fileprivate extension MenuGroupListInteractor {
                 name: menuGroup.name ?? "",
                 image: menuGroup.image
             )
-            let viewModel = MenuGroupViewModel(
+            let viewModel = ViewModel(
                 cellType: MenuGroupCell.self,
                 viewData: viewData
             )

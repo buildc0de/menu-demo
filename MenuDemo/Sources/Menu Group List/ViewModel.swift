@@ -1,6 +1,6 @@
 import UIKit
 
-struct MenuGroupViewModel<Cell>: TableViewPresentable
+struct ViewModel<Cell>: TableViewPresentable
     where Cell: UITableViewCell & NibReusable & Updatable
 {
 

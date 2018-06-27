@@ -15,7 +15,7 @@ final class DBManager {
     
 }
 
-// MARK: - Public API
+// MARK: - Public MenuGroup API
 
 extension DBManager {
     
@@ -51,7 +51,7 @@ extension DBManager {
         do {
             try persistentContainer.viewContext.save()
         } catch {
-            print("Could not save object: \(error)")
+            print("Could not save: \(error)")
             throw DBError.unableToSaveData
         }
         
@@ -68,7 +68,7 @@ extension DBManager {
             try persistentContainer.viewContext.save()
             
         } catch {
-            print("Could not save image: \(error)")
+            print("Could not delete: \(error)")
             throw DBError.unableToSaveData
         }
         
@@ -76,7 +76,7 @@ extension DBManager {
     
     func fetchAllMenuGroups() throws -> [MenuGroup] {
         
-        let fetchRequest = NSFetchRequest<MenuGroup>(entityName: "MenuGroup")
+        let fetchRequest = NSFetchRequest<MenuGroup>(entityName: MenuGroup.entity().name!)
         do {
             let items = try persistentContainer.viewContext.fetch(fetchRequest)
             return items
@@ -87,6 +87,95 @@ extension DBManager {
         
     }
 
+}
+
+// MARK: - Public MenuItem API
+
+extension DBManager {
+    
+    func insertMenuItem(menuGroupID: URL, name: String, price: NSDecimalNumber, image: UIImage?) throws -> MenuItem {
+        
+        guard
+            let menuGroupObjectID = persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: menuGroupID),
+            let menuGroup = persistentContainer.viewContext.object(with: menuGroupObjectID) as? MenuGroup
+            else { throw DBError.unableToFetchData }
+
+        let newMenuItem = MenuItem(context: persistentContainer.viewContext)
+        newMenuItem.menuGroup = menuGroup
+        let menuItem = try updateMenuItem(newMenuItem, name: name, price: price, image: image)
+        
+        return menuItem
+        
+    }
+    
+    func updateMenuItem(_ menuItem: MenuItem, name: String, price: NSDecimalNumber, image: UIImage?) throws -> MenuItem {
+        
+        menuItem.name = name
+        menuItem.price = price
+        
+//        if let image = image {
+//
+//            do {
+//
+//                menuGroup.deleteImage()
+//
+//                let imageName = try saveImage(image)
+//                menuGroup.imageName = imageName
+//
+//            } catch {
+//                print("Could not save image: \(error)")
+//                throw DBError.unableToSaveData
+//            }
+//
+//        }
+        
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            print("Could not save: \(error)")
+            throw DBError.unableToSaveData
+        }
+        
+        return menuItem
+        
+    }
+    
+    func delete(_ menuItem: MenuItem) throws {
+        
+        do {
+            
+//            menuItem.deleteImage()
+            persistentContainer.viewContext.delete(menuItem)
+            try persistentContainer.viewContext.save()
+            
+        } catch {
+            print("Could not delete: \(error)")
+            throw DBError.unableToSaveData
+        }
+        
+    }
+    
+    func fetchAllMenuItems(for menuGroupID: URL) throws -> [MenuItem] {
+        
+        guard
+            let menuGroupObjectID = persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: menuGroupID),
+            let menuGroup = persistentContainer.viewContext.object(with: menuGroupObjectID) as? MenuGroup
+            else { throw DBError.unableToFetchData }
+        
+        let fetchRequest = NSFetchRequest<MenuItem>(entityName: MenuItem.entity().name!)
+        let predicate = NSPredicate(format: "menuGroup == %@", menuGroup)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let items = try persistentContainer.viewContext.fetch(fetchRequest)
+            return items
+        } catch {
+            print("Could not fetch: \(error)")
+            throw DBError.unableToFetchData
+        }
+        
+    }
+    
 }
 
 // MARK: - Helpers

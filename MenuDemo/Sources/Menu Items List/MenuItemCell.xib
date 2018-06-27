@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="56y-By-Sst" customClass="MenuItemCell" customModule="MenuDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="56y-By-Sst" id="kd6-J2-KLT">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="emj-fT-bwG">
+                        <rect key="frame" x="8" y="20" width="359" height="59.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Sh-Mw-dCK">
+                                <rect key="frame" x="0.0" y="5" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vWe-Tl-BB6"/>
+                                    <constraint firstAttribute="width" constant="100" id="wJk-On-HVj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdd-Fb-SxE">
+                                <rect key="frame" x="110" y="19.5" width="249" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="emj-fT-bwG" secondAttribute="trailing" constant="8" id="0Cg-2f-Qy7"/>
+                    <constraint firstItem="emj-fT-bwG" firstAttribute="leading" secondItem="kd6-J2-KLT" secondAttribute="leading" constant="8" id="2OA-gc-uAO"/>
+                    <constraint firstItem="emj-fT-bwG" firstAttribute="top" secondItem="kd6-J2-KLT" secondAttribute="top" constant="20" id="65L-Dy-rOq"/>
+                    <constraint firstAttribute="bottom" secondItem="emj-fT-bwG" secondAttribute="bottom" priority="999" constant="20" id="ioM-og-mJI"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="groupImageView" destination="5Sh-Mw-dCK" id="TAO-KM-IdE"/>
+                <outlet property="imageViewHeightConstraint" destination="vWe-Tl-BB6" id="KxH-5c-3oc"/>
+                <outlet property="name" destination="Tdd-Fb-SxE" id="Imw-p1-6LF"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
