@@ -111,7 +111,7 @@
                     <viewLayoutGuide key="safeArea" id="DVq-xN-QzD"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1084" y="853"/>
+            <point key="canvasLocation" x="1084" y="991"/>
         </scene>
         <!--Menu ItemVC-->
         <scene sceneID="Xz5-PE-KEY">
@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eo7-BU-1Xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940" y="852"/>
+            <point key="canvasLocation" x="1940" y="991"/>
         </scene>
         <!--Menu GroupVC-->
         <scene sceneID="ibg-4k-syZ">
