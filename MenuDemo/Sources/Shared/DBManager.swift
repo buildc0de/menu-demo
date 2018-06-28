@@ -36,10 +36,10 @@ extension DBManager {
         
             do {
                 
-                menuGroup.deleteImage()
+                menuGroup.image?.deleteImage()
                 
-                let imageName = try saveImage(image)
-                menuGroup.imageName = imageName
+                let newImage = try saveImage(image)
+                menuGroup.image = newImage
                 
             } catch {
                 print("Could not save image: \(error)")
@@ -63,7 +63,6 @@ extension DBManager {
 
         do {
             
-            menuGroup.deleteImage()
             persistentContainer.viewContext.delete(menuGroup)
             try persistentContainer.viewContext.save()
             
@@ -109,21 +108,21 @@ extension DBManager {
         menuItem.name = name
         menuItem.price = price
         
-//        if let image = image {
-//
-//            do {
-//
-//                menuGroup.deleteImage()
-//
-//                let imageName = try saveImage(image)
-//                menuGroup.imageName = imageName
-//
-//            } catch {
-//                print("Could not save image: \(error)")
-//                throw DBError.unableToSaveData
-//            }
-//
-//        }
+        if let image = image {
+            
+            do {
+                
+                menuItem.image?.deleteImage()
+                
+                let newImage = try saveImage(image)
+                menuItem.image = newImage
+                
+            } catch {
+                print("Could not save image: \(error)")
+                throw DBError.unableToSaveData
+            }
+            
+        }
         
         do {
             try persistentContainer.viewContext.save()
@@ -140,7 +139,6 @@ extension DBManager {
         
         do {
             
-//            menuItem.deleteImage()
             persistentContainer.viewContext.delete(menuItem)
             try persistentContainer.viewContext.save()
             
@@ -174,16 +172,19 @@ extension DBManager {
 
 fileprivate extension DBManager {
     
-    func saveImage(_ image: UIImage) throws -> String {
+    func saveImage(_ image: UIImage) throws -> Image {
         
-        let imageUUID = UUID()
-        let imageData = UIImagePNGRepresentation(image)
-        let imageName = "\(imageUUID).png"
+        let uuid = UUID()
+        let data = UIImagePNGRepresentation(image)
+        let name = "\(uuid).png"
         
-        let url = MenuGroup.imageFolderURL.appendingPathComponent(imageName)
-        try imageData?.write(to: url, options: .atomic)
+        let url = Image.imageFolderURL.appendingPathComponent(name)
+        try data?.write(to: url, options: .atomic)
         
-        return imageName
+        let newImage = Image(context: persistentContainer.viewContext)
+        newImage.name = name
+        
+        return newImage
         
     }
     

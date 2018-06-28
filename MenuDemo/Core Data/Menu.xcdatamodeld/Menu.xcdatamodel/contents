@@ -2,20 +2,23 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="menuGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuGroup" inverseName="image" inverseEntity="MenuGroup" syncable="YES"/>
+        <relationship name="menuItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="image" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="MenuGroup" representedClassName="MenuGroup" syncable="YES" codeGenerationType="class">
-        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="menuGroup" inverseEntity="MenuItem" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Image" inverseName="menuGroup" inverseEntity="Image" syncable="YES"/>
+        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MenuItem" inverseName="menuGroup" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="MenuItem" representedClassName="MenuItem" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="menuGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuGroup" inverseName="relationship" inverseEntity="MenuGroup" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Image" inverseName="menuItem" inverseEntity="Image" syncable="YES"/>
+        <relationship name="menuGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuGroup" inverseName="menuItems" inverseEntity="MenuGroup" syncable="YES"/>
     </entity>
     <elements>
         <element name="MenuGroup" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="MenuItem" positionX="-63" positionY="-27" width="128" height="90"/>
-        <element name="Image" positionX="-45" positionY="18" width="128" height="60"/>
+        <element name="MenuItem" positionX="-63" positionY="-27" width="128" height="105"/>
+        <element name="Image" positionX="-45" positionY="18" width="128" height="90"/>
     </elements>
 </model>

@@ -1,16 +1,16 @@
 import UIKit
 
-extension MenuGroup {
+extension Image {
     
     static let imageFolderURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     
     var image: UIImage? {
     
         guard
-            let imageName = imageName
+            let name = name
             else { return nil }
         
-        let path = MenuGroup.imageFolderURL.appendingPathComponent(imageName).path
+        let path = Image.imageFolderURL.appendingPathComponent(name).path
         
         guard
             FileManager.default.fileExists(atPath: path),
@@ -21,13 +21,17 @@ extension MenuGroup {
         
     }
     
+    public override func prepareForDeletion() {
+        deleteImage()
+    }
+    
     func deleteImage() {
 
         guard
-            let imageName = imageName
+            let name = name
             else { return }
 
-        let path = MenuGroup.imageFolderURL.appendingPathComponent(imageName).path
+        let path = Image.imageFolderURL.appendingPathComponent(name).path
         
         if FileManager.default.isDeletableFile(atPath: path) {
             

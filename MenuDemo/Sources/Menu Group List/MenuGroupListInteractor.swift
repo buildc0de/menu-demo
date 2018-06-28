@@ -84,7 +84,7 @@ extension MenuGroupListInteractor {
     func editData(for indexPath: IndexPath) -> (name: String?, image: UIImage?) {
         
         let menuGroup = data[indexPath.row]
-        return (menuGroup.name, menuGroup.image)
+        return (menuGroup.name, menuGroup.image?.image)
         
     }
     
@@ -107,7 +107,7 @@ fileprivate extension MenuGroupListInteractor {
             
             let viewData = MenuGroupViewData(
                 name: menuGroup.name ?? "",
-                image: menuGroup.image
+                image: menuGroup.image?.image
             )
             let viewModel = ViewModel(
                 cellType: MenuGroupCell.self,

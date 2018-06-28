@@ -78,10 +78,10 @@ extension MenuItemListInteractor {
         
     }
     
-    func editData(for indexPath: IndexPath) -> (name: String?, price: NSDecimalNumber?) {
+    func editData(for indexPath: IndexPath) -> (name: String?, price: NSDecimalNumber?, image: UIImage?) {
         
         let menuItem = data[indexPath.row]
-        return (menuItem.name, menuItem.price)
+        return (menuItem.name, menuItem.price, menuItem.image?.image)
         
     }
     
@@ -98,7 +98,7 @@ fileprivate extension MenuItemListInteractor {
             let viewData = MenuItemViewData(
                 name: menuItem.name ?? "",
                 price: menuItem.price ?? 0,
-                image: nil
+                image: menuItem.image?.image
             )
             let viewModel = ViewModel(
                 cellType: MenuItemCell.self,
