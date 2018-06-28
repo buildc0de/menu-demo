@@ -32,7 +32,7 @@ extension MenuItemListInteractor {
         
     }
     
-    func addMenuItem(name: String, price: NSDecimalNumber, image: UIImage) {
+    func addMenuItem(name: String, price: NSDecimalNumber, image: UIImage?) {
         
         do {
             
@@ -46,7 +46,7 @@ extension MenuItemListInteractor {
         
     }
     
-    func editMenuItem(name: String, price: NSDecimalNumber, image: UIImage, indexPath : IndexPath) {
+    func editMenuItem(name: String, price: NSDecimalNumber, image: UIImage?, indexPath : IndexPath) {
         
         let menuItem = data[indexPath.row]
         

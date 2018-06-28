@@ -181,6 +181,7 @@ extension MenuItemListVC: SegueHandler {
                 
                 let editData = interactor.editData(for: indexPath)
                 vc.name = editData.name
+                vc.price = editData.price
                 
                 vc.completion = { name, price, image in
                     self.interactor.editMenuItem(name: name, price: price, image: image, indexPath: indexPath)

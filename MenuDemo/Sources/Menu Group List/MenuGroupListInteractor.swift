@@ -35,7 +35,7 @@ extension MenuGroupListInteractor {
         
     }
     
-    func addMenuGroup(name: String, image: UIImage) {
+    func addMenuGroup(name: String, image: UIImage?) {
         
         do {
             
@@ -49,7 +49,7 @@ extension MenuGroupListInteractor {
         
     }
 
-    func editMenuGroup(name: String, image: UIImage, indexPath: IndexPath) {
+    func editMenuGroup(name: String, image: UIImage?, indexPath: IndexPath) {
         
         let menuGroup = data[indexPath.row]
         

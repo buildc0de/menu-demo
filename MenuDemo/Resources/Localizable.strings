@@ -8,5 +8,6 @@
 
 // Errors
 "generic-error-title" = "Error";
-"dbmanager.unable-to-fetch-data" = "Unable to fetch data";
-"dbmanager.unable-to-save-data" = "Unable to save data";
+"dbmanager.error.unable-to-fetch-data" = "Unable to fetch data";
+"dbmanager.error.unable-to-save-data" = "Unable to save data";
+"dbmanager.error.unexpected-data" = "Unexpected data";

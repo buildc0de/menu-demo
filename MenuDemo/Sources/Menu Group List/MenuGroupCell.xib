@@ -47,7 +47,7 @@
             <connections>
                 <outlet property="groupImageView" destination="qTI-EO-8AZ" id="JBV-y6-Fws"/>
                 <outlet property="imageViewHeightConstraint" destination="gNd-7x-F0a" id="ycD-xe-ufn"/>
-                <outlet property="name" destination="9nb-uQ-kce" id="7WU-IC-NVk"/>
+                <outlet property="nameLabel" destination="9nb-uQ-kce" id="7WU-IC-NVk"/>
             </connections>
         </tableViewCell>
     </objects>

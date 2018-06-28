@@ -4,7 +4,8 @@ final class MenuItemCell: UITableViewCell, NibReusable {
     
     // MARK: - @IBOutlet
     @IBOutlet weak var groupImageView: UIImageView!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
 }
@@ -30,7 +31,8 @@ extension MenuItemCell: Updatable {
         }
         
         groupImageView.image = viewData.image
-        name.text = viewData.name
+        nameLabel.text = viewData.name
+        priceLabel.text = viewData.price.stringValue
         
     }
     

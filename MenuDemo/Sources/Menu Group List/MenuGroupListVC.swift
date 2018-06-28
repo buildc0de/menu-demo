@@ -113,17 +113,17 @@ extension MenuGroupListVC {
 extension MenuGroupListVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
         selectedIndexPath = indexPath
         performSegue(withIdentifier: SegueIdentifier.showMenuItems.rawValue, sender: self)
-        
+
     }
-    
+
     override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        
+
         selectedIndexPath = indexPath
         performSegue(withIdentifier: SegueIdentifier.editMenuGroup.rawValue, sender: self)
-        
+
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

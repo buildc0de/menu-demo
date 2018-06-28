@@ -76,7 +76,7 @@ extension DBManager {
     
     func fetchAllMenuGroups() throws -> [MenuGroup] {
         
-        let fetchRequest = NSFetchRequest<MenuGroup>(entityName: MenuGroup.entity().name!)
+        let fetchRequest = NSFetchRequest<MenuGroup>(entityName: "MenuGroup")
         do {
             let items = try persistentContainer.viewContext.fetch(fetchRequest)
             return items
@@ -95,13 +95,9 @@ extension DBManager {
     
     func insertMenuItem(menuGroupID: URL, name: String, price: NSDecimalNumber, image: UIImage?) throws -> MenuItem {
         
-        guard
-            let menuGroupObjectID = persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: menuGroupID),
-            let menuGroup = persistentContainer.viewContext.object(with: menuGroupObjectID) as? MenuGroup
-            else { throw DBError.unableToFetchData }
-
+        let parentMenuGroup = try menuGroup(id: menuGroupID)
         let newMenuItem = MenuItem(context: persistentContainer.viewContext)
-        newMenuItem.menuGroup = menuGroup
+        newMenuItem.menuGroup = parentMenuGroup
         let menuItem = try updateMenuItem(newMenuItem, name: name, price: price, image: image)
         
         return menuItem
@@ -157,13 +153,9 @@ extension DBManager {
     
     func fetchAllMenuItems(for menuGroupID: URL) throws -> [MenuItem] {
         
-        guard
-            let menuGroupObjectID = persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: menuGroupID),
-            let menuGroup = persistentContainer.viewContext.object(with: menuGroupObjectID) as? MenuGroup
-            else { throw DBError.unableToFetchData }
-        
-        let fetchRequest = NSFetchRequest<MenuItem>(entityName: MenuItem.entity().name!)
-        let predicate = NSPredicate(format: "menuGroup == %@", menuGroup)
+        let parentMenuGroup = try menuGroup(id: menuGroupID)
+        let fetchRequest = NSFetchRequest<MenuItem>(entityName: "MenuItem")
+        let predicate = NSPredicate(format: "menuGroup == %@", parentMenuGroup)
         fetchRequest.predicate = predicate
         
         do {
@@ -192,6 +184,17 @@ fileprivate extension DBManager {
         try imageData?.write(to: url, options: .atomic)
         
         return imageName
+        
+    }
+    
+    func menuGroup(id: URL) throws -> MenuGroup {
+        
+        guard
+            let menuGroupObjectID = persistentContainer.persistentStoreCoordinator.managedObjectID(forURIRepresentation: id),
+            let menuGroup = persistentContainer.viewContext.object(with: menuGroupObjectID) as? MenuGroup
+            else { throw DBError.unexpectedData }
+        
+        return menuGroup
         
     }
     

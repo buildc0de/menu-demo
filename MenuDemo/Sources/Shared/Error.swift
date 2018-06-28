@@ -3,6 +3,7 @@ import Foundation
 enum DBError: Error {
     case unableToFetchData
     case unableToSaveData
+    case unexpectedData
 }
 
 extension DBError: LocalizedError {
@@ -11,9 +12,11 @@ extension DBError: LocalizedError {
         
         switch self {
         case .unableToFetchData:
-            return NSLocalizedString("dbmanager.unable-to-fetch-data", comment: "")
+            return NSLocalizedString("dbmanager.error.unable-to-fetch-data", comment: "")
         case .unableToSaveData:
-            return NSLocalizedString("dbmanager.unable-to-save-data", comment: "")
+            return NSLocalizedString("dbmanager.error.unable-to-save-data", comment: "")
+        case .unexpectedData:
+            return NSLocalizedString("dbmanager.error.unexpected-data", comment: "")
         }
         
     }

@@ -22,8 +22,8 @@ final class MenuGroupVC: UIViewController {
     @IBAction func didTapSaveButton(_ sender: Any) { save() }
     @IBAction func didTapImagePickerButton(_ sender: Any) { pickImage() }
     
-    /// A closure that takes `name: String` and `image: UIImage`
-    var completion: ((_ name: String, _ image: UIImage) -> Void)?
+    /// A closure that takes `name:`, `image`
+    var completion: ((_ name: String, _ image: UIImage?) -> Void)?
 
     // MARK: - Public
     var name: String?
@@ -92,7 +92,7 @@ fileprivate extension MenuGroupVC {
     
     func save() {
         
-        completion?(nameTextField.text ?? "", image ?? UIImage())
+        completion?(nameTextField.text ?? "", image)
         navigationController?.popViewController(animated: true)
         
     }
