@@ -116,17 +116,12 @@
 			children = (
 				95312EEE20E27EA200132B4C /* CoreDataManager.swift */,
 				95312EF020E281A500132B4C /* DBManager.swift */,
-				95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */,
 				95EE19DE20E3A656009AD107 /* Error.swift */,
-				95EE19E020E3A7E9009AD107 /* ErrorPresenting.swift */,
 				95EE19F620E50770009AD107 /* Formatter.swift */,
-				95EE19F820E51956009AD107 /* InteractorOutput.swift */,
-				95312EE220DF141200132B4C /* SegueHandler.swift */,
-				95312EDA20DEA94400132B4C /* TableViewPresentable.swift */,
 				95EE19F420E50240009AD107 /* UIImage+Additions.swift */,
 				95312ED820DEA7B700132B4C /* UIView+Additions.swift */,
-				95312ED620DEA78E00132B4C /* Updatable.swift */,
 				9576B95A20DEA4D100D2E328 /* ViewModel.swift */,
+				95EE19FA20E51C63009AD107 /* Protocols */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -182,7 +177,7 @@
 			children = (
 				9576B94220DE83EC00D2E328 /* AppDelegate.swift */,
 				9576B95820DEA0C100D2E328 /* Menu Group List */,
-				95EE19E220E3ACAB009AD107 /* Menu Items List */,
+				95EE19E220E3ACAB009AD107 /* Menu Item List */,
 				95312ED520DEA77300132B4C /* Shared */,
 			);
 			path = Sources;
@@ -221,7 +216,7 @@
 			path = MenuDemoTests;
 			sourceTree = "<group>";
 		};
-		95EE19E220E3ACAB009AD107 /* Menu Items List */ = {
+		95EE19E220E3ACAB009AD107 /* Menu Item List */ = {
 			isa = PBXGroup;
 			children = (
 				95EE19E720E3AE40009AD107 /* MenuItemCell.swift */,
@@ -231,7 +226,20 @@
 				95EE19F020E46E3D009AD107 /* MenuItemVC.swift */,
 				95EE19E920E3AE6D009AD107 /* MenuItemViewData.swift */,
 			);
-			path = "Menu Items List";
+			path = "Menu Item List";
+			sourceTree = "<group>";
+		};
+		95EE19FA20E51C63009AD107 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */,
+				95EE19E020E3A7E9009AD107 /* ErrorPresenting.swift */,
+				95EE19F820E51956009AD107 /* InteractorOutput.swift */,
+				95312EE220DF141200132B4C /* SegueHandler.swift */,
+				95312EDA20DEA94400132B4C /* TableViewPresentable.swift */,
+				95312ED620DEA78E00132B4C /* Updatable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
