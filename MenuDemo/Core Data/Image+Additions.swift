@@ -25,6 +25,18 @@ extension Image {
         deleteImage()
     }
     
+    public override func willSave() {
+        
+        if
+            menuGroup == nil,
+            menuItem == nil,
+            !isDeleted
+        {
+            managedObjectContext?.delete(self)
+        }
+        
+    }
+    
     func deleteImage() {
 
         guard

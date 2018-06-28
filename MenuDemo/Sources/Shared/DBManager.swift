@@ -36,8 +36,6 @@ extension DBManager {
         
             do {
                 
-                menuGroup.image?.deleteImage()
-                
                 let newImage = try saveImage(image)
                 menuGroup.image = newImage
                 
@@ -112,8 +110,6 @@ extension DBManager {
             
             do {
                 
-                menuItem.image?.deleteImage()
-                
                 let newImage = try saveImage(image)
                 menuItem.image = newImage
                 
@@ -174,12 +170,15 @@ fileprivate extension DBManager {
     
     func saveImage(_ image: UIImage) throws -> Image {
         
+        guard
+            let data = image.pngRepresentation
+            else { throw DBError.unableToSaveData }
+        
         let uuid = UUID()
-        let data = image.pngRepresentation
         let name = "\(uuid).png"
         
         let url = Image.imageFolderURL.appendingPathComponent(name)
-        try data?.write(to: url, options: .atomic)
+        try data.write(to: url, options: .atomic)
         
         let newImage = Image(context: persistentContainer.viewContext)
         newImage.name = name
