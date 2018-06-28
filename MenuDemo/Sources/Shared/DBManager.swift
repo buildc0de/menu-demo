@@ -1,6 +1,7 @@
 import CoreData
 import UIKit
 
+/// A class responsible for persistence layer logic
 final class DBManager {
     
     let persistentContainer: NSPersistentContainer!

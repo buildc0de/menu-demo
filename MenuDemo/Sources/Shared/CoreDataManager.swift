@@ -1,6 +1,7 @@
 import CoreData
 import Foundation
 
+/// A class responsible for Core Data configuration
 final class CoreDataManager {
     
     static let sharedManager = CoreDataManager()

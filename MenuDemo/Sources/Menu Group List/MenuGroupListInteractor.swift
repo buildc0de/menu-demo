@@ -1,13 +1,6 @@
 import UIKit
 
-protocol InteractorOutput: class, ErrorPresenting {
-    
-    func showItems()
-    func updateItem(at indexPath: IndexPath)
-    func deleteItem(at indexPath: IndexPath)
-    
-}
-
+/// A class responsible for Menu Group data logic
 final class MenuGroupListInteractor {
     
     // MARK: - Public

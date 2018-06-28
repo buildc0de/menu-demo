@@ -1,5 +1,6 @@
 import UIKit
 
+/// A class responsible for Menu Item data logic
 final class MenuItemListInteractor {
     
     // MARK: - Public

@@ -40,6 +40,7 @@
 		95EE19F320E46F77009AD107 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EE19F220E46F77009AD107 /* MenuItemCell.xib */; };
 		95EE19F520E50240009AD107 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19F420E50240009AD107 /* UIImage+Additions.swift */; };
 		95EE19F720E50771009AD107 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19F620E50770009AD107 /* Formatter.swift */; };
+		95EE19F920E51956009AD107 /* InteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19F820E51956009AD107 /* InteractorOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		95EE19F220E46F77009AD107 /* MenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
 		95EE19F420E50240009AD107 /* UIImage+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
 		95EE19F620E50770009AD107 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		95EE19F820E51956009AD107 /* InteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorOutput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,11 +120,13 @@
 				95EE19DE20E3A656009AD107 /* Error.swift */,
 				95EE19E020E3A7E9009AD107 /* ErrorPresenting.swift */,
 				95EE19F620E50770009AD107 /* Formatter.swift */,
+				95EE19F820E51956009AD107 /* InteractorOutput.swift */,
 				95312EE220DF141200132B4C /* SegueHandler.swift */,
 				95312EDA20DEA94400132B4C /* TableViewPresentable.swift */,
 				95EE19F420E50240009AD107 /* UIImage+Additions.swift */,
 				95312ED820DEA7B700132B4C /* UIView+Additions.swift */,
 				95312ED620DEA78E00132B4C /* Updatable.swift */,
+				9576B95A20DEA4D100D2E328 /* ViewModel.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -193,7 +197,6 @@
 				9576B94420DE83EC00D2E328 /* MenuGroupListVC.swift */,
 				95312EE020DF12DB00132B4C /* MenuGroupVC.swift */,
 				95312EE620E159B700132B4C /* MenuGroupViewData.swift */,
-				9576B95A20DEA4D100D2E328 /* ViewModel.swift */,
 			);
 			path = "Menu Group List";
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				95312EE720E159B700132B4C /* MenuGroupViewData.swift in Sources */,
 				95EE19F520E50240009AD107 /* UIImage+Additions.swift in Sources */,
 				9576B95B20DEA4D100D2E328 /* ViewModel.swift in Sources */,
+				95EE19F920E51956009AD107 /* InteractorOutput.swift in Sources */,
 				95312EED20E27B8A00132B4C /* Menu.xcdatamodeld in Sources */,
 				95312ED720DEA78E00132B4C /* Updatable.swift in Sources */,
 				95312EDD20DEC6CD00132B4C /* EmptyStatePresenting.swift in Sources */,
