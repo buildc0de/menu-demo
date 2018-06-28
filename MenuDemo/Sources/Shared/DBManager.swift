@@ -175,7 +175,7 @@ fileprivate extension DBManager {
     func saveImage(_ image: UIImage) throws -> Image {
         
         let uuid = UUID()
-        let data = UIImagePNGRepresentation(image)
+        let data = image.pngRepresentation
         let name = "\(uuid).png"
         
         let url = Image.imageFolderURL.appendingPathComponent(name)
