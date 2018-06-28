@@ -83,10 +83,33 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyView" destination="cHS-QE-XKC" id="62d-x0-Cid"/>
                         <segue destination="oUE-7n-9z2" kind="show" identifier="editMenuItem" id="deH-uD-hz6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beu-wg-ayC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="cHS-QE-XKC">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap '+' to add new items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIq-MY-J6e">
+                            <rect key="frame" x="27" y="53" width="186" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="DVq-xN-QzD" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JIq-MY-J6e" secondAttribute="bottom" id="4rN-Hm-qId"/>
+                        <constraint firstItem="JIq-MY-J6e" firstAttribute="centerY" secondItem="DVq-xN-QzD" secondAttribute="centerY" id="UCT-Xp-t6t"/>
+                        <constraint firstItem="JIq-MY-J6e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DVq-xN-QzD" secondAttribute="leading" id="eL7-gU-0EC"/>
+                        <constraint firstItem="DVq-xN-QzD" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JIq-MY-J6e" secondAttribute="trailing" id="itl-C9-ML8"/>
+                        <constraint firstItem="JIq-MY-J6e" firstAttribute="centerX" secondItem="DVq-xN-QzD" secondAttribute="centerX" id="ooG-AX-tQO"/>
+                        <constraint firstItem="JIq-MY-J6e" firstAttribute="top" relation="greaterThanOrEqual" secondItem="DVq-xN-QzD" secondAttribute="top" id="tQM-G8-QTL"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="DVq-xN-QzD"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1084" y="853"/>
         </scene>
