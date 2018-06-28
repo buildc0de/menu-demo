@@ -31,8 +31,8 @@ extension MenuItemCell: Updatable {
         }
         
         groupImageView.image = viewData.image
-        nameLabel.text = viewData.name
-        priceLabel.text = viewData.price.stringValue
+        nameLabel.text = viewData.name        
+        priceLabel.text = Formatter.priceFormatter.string(from: viewData.price)
         
     }
     

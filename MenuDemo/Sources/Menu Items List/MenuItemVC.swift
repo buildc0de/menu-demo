@@ -78,7 +78,7 @@ extension MenuItemVC {
     func configurePriceTextField() {
         
         priceTextField.delegate = self
-        priceTextField.text = price?.stringValue
+        priceTextField.text = Formatter.priceFormatter.string(from: price ?? 0)
         
     }
     

@@ -39,6 +39,7 @@
 		95EE19F120E46E3D009AD107 /* MenuItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19F020E46E3D009AD107 /* MenuItemVC.swift */; };
 		95EE19F320E46F77009AD107 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EE19F220E46F77009AD107 /* MenuItemCell.xib */; };
 		95EE19F520E50240009AD107 /* UIImage+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19F420E50240009AD107 /* UIImage+Additions.swift */; };
+		95EE19F720E50771009AD107 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE19F620E50770009AD107 /* Formatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		95EE19F020E46E3D009AD107 /* MenuItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemVC.swift; sourceTree = "<group>"; };
 		95EE19F220E46F77009AD107 /* MenuItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
 		95EE19F420E50240009AD107 /* UIImage+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Additions.swift"; sourceTree = "<group>"; };
+		95EE19F620E50770009AD107 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				95312EDC20DEC6CD00132B4C /* EmptyStatePresenting.swift */,
 				95EE19DE20E3A656009AD107 /* Error.swift */,
 				95EE19E020E3A7E9009AD107 /* ErrorPresenting.swift */,
+				95EE19F620E50770009AD107 /* Formatter.swift */,
 				95312EE220DF141200132B4C /* SegueHandler.swift */,
 				95312EDA20DEA94400132B4C /* TableViewPresentable.swift */,
 				95EE19F420E50240009AD107 /* UIImage+Additions.swift */,
@@ -349,6 +352,7 @@
 				95EE19F120E46E3D009AD107 /* MenuItemVC.swift in Sources */,
 				95312EE320DF141200132B4C /* SegueHandler.swift in Sources */,
 				95312EF120E281A500132B4C /* DBManager.swift in Sources */,
+				95EE19F720E50771009AD107 /* Formatter.swift in Sources */,
 				9576B95520DE9FDA00D2E328 /* MenuGroupListInteractor.swift in Sources */,
 				9576B94320DE83EC00D2E328 /* AppDelegate.swift in Sources */,
 				95EE19E120E3A7E9009AD107 /* ErrorPresenting.swift in Sources */,
